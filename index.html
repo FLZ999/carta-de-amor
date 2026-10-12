@@ -32,10 +32,6 @@ body {
     overflow-y: auto;
 }
 
-/* =====================================================
-   CORAÇÕES FLUTUANTES DE FUNDO
-===================================================== */
-
 .floating-hearts {
     position: fixed;
     top: 0;
@@ -68,10 +64,6 @@ body {
         opacity: 0;
     }
 }
-
-/* =====================================================
-   TELAS DE PERGUNTA
-===================================================== */
 
 .tela-pergunta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
@@ -107,7 +99,6 @@ body {
     }
 }
 
-/* Cadeado */
 .cadeado {
     font-size: 70px;
     display: block;
@@ -125,7 +116,6 @@ body {
     }
 }
 
-/* Etapa */
 .etapa {
     display: inline-block;
     margin-bottom: 25px;
@@ -139,7 +129,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Título da tela */
 .titulo-senha {
     font-size: 26px;
     color: #ff8fa3;
@@ -149,7 +138,6 @@ body {
     line-height: 1.4;
 }
 
-/* ✅ DICA - AGORA VAI APARECER */
 .dica {
     display: block;
     width: fit-content;
@@ -175,7 +163,6 @@ body {
     padding: 0 5px;
 }
 
-/* Input da senha */
 .input-senha {
     width: 100%;
     padding: 18px 25px;
@@ -207,7 +194,6 @@ body {
     background: rgba(0, 0, 0, 0.6);
 }
 
-/* Botão */
 .btn-desbloquear {
     margin-top: 25px;
     padding: 15px 50px;
@@ -235,7 +221,6 @@ body {
     transform: scale(0.98);
 }
 
-/* Erro */
 .erro-senha {
     margin-top: 18px;
     font-size: 15px;
@@ -259,7 +244,6 @@ body {
     80% { transform: translateX(6px); }
 }
 
-/* Sucesso */
 .tela-pergunta.sucesso {
     animation: sucessoAnim 0.8s ease forwards;
 }
@@ -278,10 +262,6 @@ body {
         opacity: 0;
     }
 }
-
-/* =====================================================
-   CARTA
-===================================================== */
 
 .carta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
@@ -406,6 +386,69 @@ body {
     line-height: 1.9;
 }
 
+.foto-final {
+    margin-top: 40px;
+    text-align: center;
+    animation: aparecerFoto 1.5s ease 0.5s both;
+}
+
+@keyframes aparecerFoto {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.foto-final img {
+    max-width: 100%;
+    width: 380px;
+    height: auto;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 77, 109, 0.7);
+    box-shadow:
+        0 0 30px rgba(255, 77, 109, 0.6),
+        0 0 60px rgba(255, 77, 109, 0.4),
+        0 10px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+    animation: pulsarFoto 3s ease-in-out infinite;
+}
+
+@keyframes pulsarFoto {
+    0%, 100% { 
+        box-shadow:
+            0 0 30px rgba(255, 77, 109, 0.6),
+            0 0 60px rgba(255, 77, 109, 0.4),
+            0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+    50% { 
+        box-shadow:
+            0 0 45px rgba(255, 77, 109, 0.9),
+            0 0 90px rgba(255, 77, 109, 0.6),
+            0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+}
+
+.foto-final img:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 0 60px rgba(255, 77, 109, 1),
+        0 0 120px rgba(255, 77, 109, 0.7);
+}
+
+.foto-final .legenda {
+    margin-top: 20px;
+    color: #ff8fa3;
+    font-size: 16px;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+    line-height: 1.8;
+}
+
 .coracao-final {
     text-align: center;
     font-size: 40px;
@@ -414,32 +457,17 @@ body {
     filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
 }
 
-/* =====================================================
-   RESPONSIVO
-===================================================== */
-
 @media(max-width: 700px) {
-    body {
-        padding: 20px 12px;
-    }
+    body { padding: 20px 12px; }
 
     .tela-pergunta {
         padding: 40px 25px;
         border-radius: 20px;
     }
 
-    .cadeado {
-        font-size: 55px;
-    }
-
-    .titulo-senha {
-        font-size: 20px;
-    }
-
-    .etapa {
-        font-size: 11px;
-        padding: 5px 14px;
-    }
+    .cadeado { font-size: 55px; }
+    .titulo-senha { font-size: 20px; }
+    .etapa { font-size: 11px; padding: 5px 14px; }
 
     .dica {
         font-size: 13px;
@@ -447,9 +475,7 @@ body {
         margin-bottom: 25px;
     }
 
-    .dica strong {
-        font-size: 17px;
-    }
+    .dica strong { font-size: 17px; }
 
     .input-senha {
         font-size: 18px;
@@ -466,20 +492,9 @@ body {
         border-radius: 20px;
     }
 
-    .selo {
-        font-size: 50px;
-        margin-bottom: 18px;
-    }
-
-    .data-carta {
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-
-    .saudacao {
-        font-size: 22px;
-        margin-bottom: 22px;
-    }
+    .selo { font-size: 50px; margin-bottom: 18px; }
+    .data-carta { font-size: 12px; margin-bottom: 20px; }
+    .saudacao { font-size: 22px; margin-bottom: 22px; }
 
     .texto-carta {
         font-size: 16px;
@@ -487,29 +502,23 @@ body {
         text-align: left;
     }
 
-    .texto-carta p {
-        margin-bottom: 18px;
-        text-indent: 20px;
+    .texto-carta p { margin-bottom: 18px; text-indent: 20px; }
+
+    .assinatura { font-size: 18px; margin-top: 35px; }
+    .assinatura .nome { font-size: 22px; }
+
+    .ps { font-size: 14px; margin-top: 30px; padding-top: 20px; }
+
+    .foto-final img {
+        width: 100%;
+        max-width: 320px;
     }
 
-    .assinatura {
-        font-size: 18px;
-        margin-top: 35px;
-    }
-
-    .assinatura .nome {
-        font-size: 22px;
-    }
-
-    .ps {
+    .foto-final .legenda {
         font-size: 14px;
-        margin-top: 30px;
-        padding-top: 20px;
     }
 
-    .coracao-final {
-        font-size: 32px;
-    }
+    .coracao-final { font-size: 32px; }
 }
 </style>
 </head>
@@ -517,14 +526,10 @@ body {
 
 <div class="floating-hearts" id="floatingHearts"></div>
 
-<!-- =====================================================
-     ETAPA 1 - COM DICA
-===================================================== -->
 <div class="tela-pergunta ativa" id="telaEtapa1">
     <span class="cadeado">🔒</span>
     <div class="etapa">Etapa 1 de 2</div>
     <h1 class="titulo-senha">Qual é a minha coisa favorita?</h1>
-    
     <div class="dica">
         Dica: começa com <strong>M</strong>
     </div>
@@ -546,9 +551,6 @@ body {
     </p>
 </div>
 
-<!-- =====================================================
-     ETAPA 2 - SEM DICA
-===================================================== -->
 <div class="tela-pergunta" id="telaEtapa2">
     <span class="cadeado">💘</span>
     <div class="etapa">Etapa 2 de 2</div>
@@ -571,9 +573,6 @@ body {
     </p>
 </div>
 
-<!-- =====================================================
-     CARTA (escondida até acertar as 2 etapas)
-===================================================== -->
 <div class="carta" id="carta">
     <span class="selo">💌</span>
 
@@ -631,6 +630,14 @@ body {
         Porque o que eu sinto por você não tem data, não tem prazo e não tem fim. 💕
     </div>
 
+    <div class="foto-final">
+        <img src="foto-casal.jpg" alt="Nós dois 💕">
+        <div class="legenda">
+            Eu e você 🖤<br>
+            <small style="font-size: 13px; opacity: 0.8;">para sempre</small>
+        </div>
+    </div>
+
     <div class="coracao-final">❤️</div>
 </div>
 
@@ -638,15 +645,9 @@ body {
 (function() {
     'use strict';
 
-    // =====================================================
-    // RESPOSTAS CORRETAS
-    // =====================================================
     const RESPOSTA_ETAPA_1 = 'maria';
     const RESPOSTA_ETAPA_2 = '01/09/2026';
 
-    // =====================================================
-    // ELEMENTOS
-    // =====================================================
     const telaEtapa1 = document.getElementById('telaEtapa1');
     const inputEtapa1 = document.getElementById('inputEtapa1');
     const btnEtapa1 = document.getElementById('btnEtapa1');
@@ -659,9 +660,6 @@ body {
 
     const carta = document.getElementById('carta');
 
-    // =====================================================
-    // CORAÇÕES FLUTUANTES
-    // =====================================================
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
         if (!container) return;
@@ -702,9 +700,6 @@ body {
         }
     });
 
-    // =====================================================
-    // ETAPA 1
-    // =====================================================
     function verificarEtapa1() {
         const valor = inputEtapa1.value.trim().toLowerCase();
 
@@ -729,9 +724,6 @@ body {
         }
     }
 
-    // =====================================================
-    // ETAPA 2
-    // =====================================================
     function verificarEtapa2() {
         let valor = inputEtapa2.value.trim();
         valor = valor.replace(/\s/g, '');
@@ -766,9 +758,6 @@ body {
         }
     }
 
-    // =====================================================
-    // MÁSCARA DA DATA
-    // =====================================================
     inputEtapa2.addEventListener('input', function(e) {
         let valor = e.target.value.replace(/\D/g, '');
 
@@ -782,9 +771,6 @@ body {
         e.target.value = valor;
     });
 
-    // =====================================================
-    // EVENTOS
-    // =====================================================
     btnEtapa1.addEventListener('click', verificarEtapa1);
     inputEtapa1.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') verificarEtapa1();
@@ -801,7 +787,7 @@ body {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta com 2 etapas carregada!');
+    console.log('💌 Carta carregada!');
 
 })();
 </script>
