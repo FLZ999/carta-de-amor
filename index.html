@@ -386,6 +386,10 @@ body {
     line-height: 1.9;
 }
 
+/* =====================================================
+   FOTO FINAL
+===================================================== */
+
 .foto-final {
     margin-top: 40px;
     text-align: center;
@@ -415,6 +419,7 @@ body {
         0 10px 40px rgba(0, 0, 0, 0.6);
     transition: all 0.4s ease;
     animation: pulsarFoto 3s ease-in-out infinite;
+    cursor: pointer;
 }
 
 @keyframes pulsarFoto {
@@ -455,6 +460,75 @@ body {
     margin-top: 30px;
     animation: pulsarCoracao 1.5s ease-in-out infinite;
     filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
+}
+
+/* =====================================================
+   ZOOM DA FOTO
+===================================================== */
+
+.zoom-foto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 5000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    cursor: zoom-out;
+    animation: fadeInZoom 0.4s ease;
+}
+
+.zoom-foto.ativo {
+    display: flex;
+}
+
+@keyframes fadeInZoom {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.zoom-foto img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 77, 109, 0.8);
+    box-shadow:
+        0 0 40px rgba(255, 23, 68, 0.8),
+        0 0 80px rgba(255, 23, 68, 0.5),
+        0 0 120px rgba(255, 23, 68, 0.3);
+    animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.zoom-foto .fechar-zoom {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: #ff3b5c;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+    z-index: 5001;
+    line-height: 1;
+    font-family: Arial, sans-serif;
+}
+
+.zoom-foto .fechar-zoom:hover {
+    transform: scale(1.2) rotate(90deg);
+    color: white;
 }
 
 @media(max-width: 700px) {
@@ -519,6 +593,16 @@ body {
     }
 
     .coracao-final { font-size: 32px; }
+
+    .zoom-foto {
+        padding: 15px;
+    }
+
+    .zoom-foto .fechar-zoom {
+        font-size: 35px;
+        top: 15px;
+        right: 20px;
+    }
 }
 </style>
 </head>
@@ -631,7 +715,7 @@ body {
     </div>
 
     <div class="foto-final">
-        <img src="foto-casal.jpg" alt="Nós dois 💕">
+        <img src="foto-casal.jpg" alt="Nós dois 💕" id="fotoCasal">
         <div class="legenda">
             Eu e você 🖤<br>
             <small style="font-size: 13px; opacity: 0.8;">para sempre</small>
@@ -641,13 +725,25 @@ body {
     <div class="coracao-final">❤️</div>
 </div>
 
+<!-- ZOOM DA FOTO -->
+<div class="zoom-foto" id="zoomFoto">
+    <span class="fechar-zoom" id="fecharZoom">×</span>
+    <img src="" alt="Foto ampliada" id="fotoAmpliada">
+</div>
+
 <script>
 (function() {
     'use strict';
 
+    // =====================================================
+    // RESPOSTAS
+    // =====================================================
     const RESPOSTA_ETAPA_1 = 'maria';
     const RESPOSTA_ETAPA_2 = '01/09/2026';
 
+    // =====================================================
+    // ELEMENTOS
+    // =====================================================
     const telaEtapa1 = document.getElementById('telaEtapa1');
     const inputEtapa1 = document.getElementById('inputEtapa1');
     const btnEtapa1 = document.getElementById('btnEtapa1');
@@ -660,6 +756,50 @@ body {
 
     const carta = document.getElementById('carta');
 
+    // =====================================================
+    // ZOOM DA FOTO
+    // =====================================================
+    const fotoCasal = document.getElementById('fotoCasal');
+    const zoomFoto = document.getElementById('zoomFoto');
+    const fotoAmpliada = document.getElementById('fotoAmpliada');
+    const fecharZoom = document.getElementById('fecharZoom');
+
+    if (fotoCasal) {
+        fotoCasal.addEventListener('click', function() {
+            fotoAmpliada.src = this.src;
+            zoomFoto.style.display = 'flex';
+            void zoomFoto.offsetWidth;
+            zoomFoto.classList.add('ativo');
+        });
+    }
+
+    function fecharZoomFoto() {
+        zoomFoto.style.animation = 'fadeInZoom 0.3s ease reverse';
+        setTimeout(function() {
+            zoomFoto.classList.remove('ativo');
+            zoomFoto.style.display = 'none';
+            fotoAmpliada.src = '';
+        }, 300);
+    }
+
+    if (fecharZoom) {
+        fecharZoom.addEventListener('click', function(e) {
+            e.stopPropagation();
+            fecharZoomFoto();
+        });
+    }
+
+    if (zoomFoto) {
+        zoomFoto.addEventListener('click', function(e) {
+            if (e.target === zoomFoto || e.target === fotoAmpliada) {
+                fecharZoomFoto();
+            }
+        });
+    }
+
+    // =====================================================
+    // CORAÇÕES FLUTUANTES
+    // =====================================================
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
         if (!container) return;
@@ -700,6 +840,9 @@ body {
         }
     });
 
+    // =====================================================
+    // ETAPA 1
+    // =====================================================
     function verificarEtapa1() {
         const valor = inputEtapa1.value.trim().toLowerCase();
 
@@ -724,6 +867,9 @@ body {
         }
     }
 
+    // =====================================================
+    // ETAPA 2
+    // =====================================================
     function verificarEtapa2() {
         let valor = inputEtapa2.value.trim();
         valor = valor.replace(/\s/g, '');
@@ -758,6 +904,7 @@ body {
         }
     }
 
+    // Máscara da data
     inputEtapa2.addEventListener('input', function(e) {
         let valor = e.target.value.replace(/\D/g, '');
 
@@ -771,6 +918,7 @@ body {
         e.target.value = valor;
     });
 
+    // Eventos
     btnEtapa1.addEventListener('click', verificarEtapa1);
     inputEtapa1.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') verificarEtapa1();
@@ -787,7 +935,7 @@ body {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta carregada!');
+    console.log('💌 Carta carregada com zoom na foto!');
 
 })();
 </script>
