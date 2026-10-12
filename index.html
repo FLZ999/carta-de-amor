@@ -74,10 +74,10 @@ body {
 }
 
 /* =====================================================
-   TELA DE SENHA
+   TELAS DE PERGUNTA
 ===================================================== */
 
-.tela-senha {
+.tela-pergunta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
     border: 2px solid rgba(255, 77, 109, 0.5);
     border-radius: 25px;
@@ -93,6 +93,11 @@ body {
     position: relative;
     z-index: 10;
     animation: abrirCarta 1.2s ease;
+    display: none;
+}
+
+.tela-pergunta.ativa {
+    display: block;
 }
 
 @keyframes abrirCarta {
@@ -124,7 +129,21 @@ body {
     }
 }
 
-/* Título da tela de senha */
+/* Número da etapa */
+.etapa {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 6px 18px;
+    background: rgba(255, 77, 109, 0.2);
+    border: 1px solid rgba(255, 77, 109, 0.5);
+    border-radius: 50px;
+    font-size: 13px;
+    color: #ff8fa3;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Título da tela */
 .titulo-senha {
     font-size: 26px;
     color: #ff8fa3;
@@ -147,6 +166,7 @@ body {
     color: rgba(255, 200, 210, 0.9);
     letter-spacing: 2px;
     font-style: italic;
+    line-height: 1.6;
 }
 
 .dica strong {
@@ -189,7 +209,7 @@ body {
     background: rgba(0, 0, 0, 0.6);
 }
 
-/* Botão de desbloquear */
+/* Botão */
 .btn-desbloquear {
     margin-top: 25px;
     padding: 15px 50px;
@@ -242,7 +262,7 @@ body {
 }
 
 /* Animação de sucesso */
-.tela-senha.sucesso {
+.tela-pergunta.sucesso {
     animation: sucessoAnim 0.8s ease forwards;
 }
 
@@ -262,7 +282,7 @@ body {
 }
 
 /* =====================================================
-   CARTA (INICIALMENTE ESCONDIDA)
+   CARTA
 ===================================================== */
 
 .carta {
@@ -298,7 +318,6 @@ body {
     }
 }
 
-/* Selo/coração no topo */
 .selo {
     font-size: 65px;
     text-align: center;
@@ -313,7 +332,6 @@ body {
     50% { transform: scale(1.15); }
 }
 
-/* Linha decorativa */
 .linha-decorativa {
     width: 100%;
     height: 2px;
@@ -322,7 +340,6 @@ body {
     box-shadow: 0 0 10px rgba(255, 77, 109, 0.8);
 }
 
-/* Data no topo */
 .data-carta {
     text-align: right;
     color: rgba(255, 200, 210, 0.7);
@@ -332,7 +349,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Saudação */
 .saudacao {
     font-size: 28px;
     color: #ff8fa3;
@@ -342,7 +358,6 @@ body {
     font-style: italic;
 }
 
-/* Corpo do texto */
 .texto-carta {
     font-size: 19px;
     line-height: 2.1;
@@ -363,7 +378,6 @@ body {
     font-style: italic;
 }
 
-/* Assinatura */
 .assinatura {
     margin-top: 50px;
     text-align: right;
@@ -383,7 +397,6 @@ body {
     text-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
 }
 
-/* P.S. */
 .ps {
     margin-top: 40px;
     padding-top: 30px;
@@ -412,7 +425,7 @@ body {
         padding: 20px 12px;
     }
 
-    .tela-senha {
+    .tela-pergunta {
         padding: 40px 25px;
         border-radius: 20px;
     }
@@ -423,6 +436,11 @@ body {
 
     .titulo-senha {
         font-size: 20px;
+    }
+
+    .etapa {
+        font-size: 11px;
+        padding: 5px 14px;
     }
 
     .dica {
@@ -501,10 +519,11 @@ body {
 <div class="floating-hearts" id="floatingHearts"></div>
 
 <!-- =====================================================
-     TELA DE SENHA
+     ETAPA 1: PERGUNTA SOBRE COISA FAVORITA
 ===================================================== -->
-<div class="tela-senha" id="telaSenha">
+<div class="tela-pergunta ativa" id="telaEtapa1">
     <span class="cadeado">🔒</span>
+    <div class="etapa">Etapa 1 de 2</div>
     <h1 class="titulo-senha">Qual é a minha coisa favorita?</h1>
     <div class="dica">
         Dica: começa com <strong>M</strong>
@@ -513,22 +532,52 @@ body {
     <input 
         type="text" 
         class="input-senha" 
-        id="inputSenha" 
+        id="inputEtapa1" 
         placeholder="Digite aqui..." 
         autocomplete="off"
         maxlength="20">
 
-    <button class="btn-desbloquear" id="btnDesbloquear">
-        Desbloquear 💕
+    <button class="btn-desbloquear" id="btnEtapa1">
+        Continuar 💕
     </button>
 
-    <p class="erro-senha" id="erroSenha">
+    <p class="erro-senha" id="erroEtapa1">
         Hmm... tenta de novo! 🥺
     </p>
 </div>
 
 <!-- =====================================================
-     CARTA (escondida até acertar a senha)
+     ETAPA 2: PERGUNTA SOBRE A DATA
+===================================================== -->
+<div class="tela-pergunta" id="telaEtapa2">
+    <span class="cadeado">💘</span>
+    <div class="etapa">Etapa 2 de 2</div>
+    <h1 class="titulo-senha">Quando a gente se conheceu?</h1>
+    <div class="dica">
+        Dica: dia <strong>1</strong> do mês <strong>9</strong> do ano <strong>2026</strong>
+        <br>
+        <small style="opacity: 0.7; letter-spacing: 1px;">(formato: DD/MM/AAAA)</small>
+    </div>
+
+    <input 
+        type="text" 
+        class="input-senha" 
+        id="inputEtapa2" 
+        placeholder="__/__/____" 
+        autocomplete="off"
+        maxlength="10">
+
+    <button class="btn-desbloquear" id="btnEtapa2">
+        Desbloquear 💕
+    </button>
+
+    <p class="erro-senha" id="erroEtapa2">
+        Hmm... tenta de novo! 🥺
+    </p>
+</div>
+
+<!-- =====================================================
+     CARTA (escondida até acertar as 2 etapas)
 ===================================================== -->
 <div class="carta" id="carta">
     <span class="selo">💌</span>
@@ -595,17 +644,30 @@ body {
     'use strict';
 
     // =====================================================
-    // SENHA CORRETA
+    // RESPOSTAS CORRETAS
     // =====================================================
-    const SENHA_CORRETA = 'maria';
+    const RESPOSTA_ETAPA_1 = 'maria';
+    const RESPOSTA_ETAPA_2 = '01/09/2026';
 
     // =====================================================
-    // ELEMENTOS
+    // ELEMENTOS - ETAPA 1
     // =====================================================
-    const telaSenha = document.getElementById('telaSenha');
-    const inputSenha = document.getElementById('inputSenha');
-    const btnDesbloquear = document.getElementById('btnDesbloquear');
-    const erroSenha = document.getElementById('erroSenha');
+    const telaEtapa1 = document.getElementById('telaEtapa1');
+    const inputEtapa1 = document.getElementById('inputEtapa1');
+    const btnEtapa1 = document.getElementById('btnEtapa1');
+    const erroEtapa1 = document.getElementById('erroEtapa1');
+
+    // =====================================================
+    // ELEMENTOS - ETAPA 2
+    // =====================================================
+    const telaEtapa2 = document.getElementById('telaEtapa2');
+    const inputEtapa2 = document.getElementById('inputEtapa2');
+    const btnEtapa2 = document.getElementById('btnEtapa2');
+    const erroEtapa2 = document.getElementById('erroEtapa2');
+
+    // =====================================================
+    // ELEMENTOS - CARTA
+    // =====================================================
     const carta = document.getElementById('carta');
 
     // =====================================================
@@ -652,50 +714,123 @@ body {
     });
 
     // =====================================================
-    // VERIFICAR SENHA
+    // ETAPA 1 - VERIFICAR RESPOSTA
     // =====================================================
-    function verificarSenha() {
-        const valor = inputSenha.value.trim().toLowerCase();
+    function verificarEtapa1() {
+        const valor = inputEtapa1.value.trim().toLowerCase();
 
-        if (valor === SENHA_CORRETA) {
+        if (valor === RESPOSTA_ETAPA_1) {
             // ACERTOU!
-            telaSenha.classList.add('sucesso');
+            telaEtapa1.classList.add('sucesso');
 
             setTimeout(function() {
-                telaSenha.style.display = 'none';
-                carta.classList.add('ativa');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                telaEtapa1.style.display = 'none';
+                telaEtapa1.classList.remove('ativa', 'sucesso');
+                telaEtapa2.style.display = 'block';
+                telaEtapa2.classList.add('ativa');
+                inputEtapa2.focus();
             }, 800);
         } else {
             // ERROU!
-            erroSenha.classList.add('ativo');
-            inputSenha.value = '';
-            inputSenha.focus();
+            erroEtapa1.classList.add('ativo');
+            inputEtapa1.value = '';
+            inputEtapa1.focus();
 
             setTimeout(function() {
-                erroSenha.classList.remove('ativo');
+                erroEtapa1.classList.remove('ativo');
             }, 2000);
         }
     }
 
     // =====================================================
-    // EVENTOS
+    // ETAPA 2 - VERIFICAR RESPOSTA
     // =====================================================
-    btnDesbloquear.addEventListener('click', verificarSenha);
+    function verificarEtapa2() {
+        let valor = inputEtapa2.value.trim();
 
-    inputSenha.addEventListener('keypress', function(e) {
+        // Remove espaços extras e normaliza
+        valor = valor.replace(/\s/g, '');
+
+        // Aceita formatos: 01/09/2026, 1/9/2026, 01092026, 1-9-2026
+        const formatos = [
+            '01/09/2026',
+            '1/9/2026',
+            '01092026',
+            '1-9-2026',
+            '01-09-2026',
+            '1.9.2026',
+            '01.09.2026'
+        ];
+
+        if (formatos.includes(valor)) {
+            // ACERTOU!
+            telaEtapa2.classList.add('sucesso');
+
+            setTimeout(function() {
+                telaEtapa2.style.display = 'none';
+                telaEtapa2.classList.remove('ativa', 'sucesso');
+                carta.classList.add('ativa');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 800);
+        } else {
+            // ERROU!
+            erroEtapa2.classList.add('ativo');
+            inputEtapa2.value = '';
+            inputEtapa2.focus();
+
+            setTimeout(function() {
+                erroEtapa2.classList.remove('ativo');
+            }, 2000);
+        }
+    }
+
+    // =====================================================
+    // MÁSCARA PARA DIGITAR A DATA
+    // =====================================================
+    inputEtapa2.addEventListener('input', function(e) {
+        let valor = e.target.value.replace(/\D/g, ''); // só números
+
+        if (valor.length > 2) {
+            valor = valor.substring(0, 2) + '/' + valor.substring(2);
+        }
+        if (valor.length > 5) {
+            valor = valor.substring(0, 5) + '/' + valor.substring(5, 9);
+        }
+
+        e.target.value = valor;
+    });
+
+    // =====================================================
+    // EVENTOS - ETAPA 1
+    // =====================================================
+    btnEtapa1.addEventListener('click', verificarEtapa1);
+
+    inputEtapa1.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
-            verificarSenha();
+            verificarEtapa1();
         }
     });
 
-    inputSenha.focus();
+    // =====================================================
+    // EVENTOS - ETAPA 2
+    // =====================================================
+    btnEtapa2.addEventListener('click', verificarEtapa2);
+
+    inputEtapa2.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            verificarEtapa2();
+        }
+    });
+
+    // Foco inicial
+    inputEtapa1.focus();
 
     window.addEventListener('beforeunload', function() {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta com pergunta carregada! Resposta: Maria');
+    console.log('💌 Carta com 2 etapas carregada!');
+    console.log('Etapa 1: Maria | Etapa 2: 01/09/2026');
 
 })();
 </script>
