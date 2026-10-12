@@ -82,7 +82,7 @@ body {
     border: 2px solid rgba(255, 77, 109, 0.5);
     border-radius: 25px;
     padding: 60px 50px;
-    max-width: 500px;
+    max-width: 550px;
     width: 100%;
     text-align: center;
     box-shadow:
@@ -128,18 +128,33 @@ body {
 .titulo-senha {
     font-size: 26px;
     color: #ff8fa3;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
     font-weight: 400;
+    line-height: 1.4;
 }
 
-/* Subtítulo */
-.subtitulo-senha {
-    font-size: 15px;
-    color: rgba(255, 200, 210, 0.7);
+/* Dica */
+.dica {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 30px;
+    padding: 8px 20px;
+    background: rgba(255, 77, 109, 0.15);
+    border: 1px dashed rgba(255, 77, 109, 0.6);
+    border-radius: 50px;
+    font-size: 14px;
+    color: rgba(255, 200, 210, 0.9);
+    letter-spacing: 2px;
     font-style: italic;
-    margin-bottom: 35px;
-    line-height: 1.8;
+}
+
+.dica strong {
+    color: #ff4d6d;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px rgba(255, 77, 109, 0.8);
 }
 
 /* Input da senha */
@@ -410,8 +425,13 @@ body {
         font-size: 20px;
     }
 
-    .subtitulo-senha {
-        font-size: 14px;
+    .dica {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .dica strong {
+        font-size: 15px;
     }
 
     .input-senha {
@@ -485,18 +505,16 @@ body {
 ===================================================== -->
 <div class="tela-senha" id="telaSenha">
     <span class="cadeado">🔒</span>
-    <h1 class="titulo-senha">Antes de abrir a carta...</h1>
-    <p class="subtitulo-senha">
-        Digite o nome do meu amor pra desbloquear 💕
-        <br>
-        <small style="opacity: 0.6;">(dica: é você mesma 😉)</small>
-    </p>
+    <h1 class="titulo-senha">Qual é a minha coisa favorita?</h1>
+    <div class="dica">
+        Dica: começa com <strong>M</strong>
+    </div>
 
     <input 
         type="text" 
         class="input-senha" 
         id="inputSenha" 
-        placeholder="Digite o nome aqui..." 
+        placeholder="Digite aqui..." 
         autocomplete="off"
         maxlength="20">
 
@@ -646,8 +664,6 @@ body {
             setTimeout(function() {
                 telaSenha.style.display = 'none';
                 carta.classList.add('ativa');
-
-                // Scroll suave até o topo
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 800);
         } else {
@@ -673,14 +689,13 @@ body {
         }
     });
 
-    // Foco automático no input
     inputSenha.focus();
 
     window.addEventListener('beforeunload', function() {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta de amor com senha carregada! Senha: Maria');
+    console.log('💌 Carta com pergunta carregada! Resposta: Maria');
 
 })();
 </script>
