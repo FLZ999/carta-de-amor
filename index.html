@@ -32,6 +32,10 @@ body {
     overflow-y: auto;
 }
 
+/* =====================================================
+   CORAÇÕES FLUTUANTES DE FUNDO
+===================================================== */
+
 .floating-hearts {
     position: fixed;
     top: 0;
@@ -65,7 +69,10 @@ body {
     }
 }
 
-/* TELAS DE PERGUNTA */
+/* =====================================================
+   TELAS DE PERGUNTA
+===================================================== */
+
 .tela-pergunta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
     border: 2px solid rgba(255, 77, 109, 0.5);
@@ -100,6 +107,7 @@ body {
     }
 }
 
+/* Cadeado */
 .cadeado {
     font-size: 70px;
     display: block;
@@ -109,13 +117,18 @@ body {
 }
 
 @keyframes pulsarCadeado {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.1) rotate(-5deg); }
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+    }
+    50% { 
+        transform: scale(1.1) rotate(-5deg);
+    }
 }
 
+/* Etapa */
 .etapa {
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     padding: 6px 18px;
     background: rgba(255, 77, 109, 0.2);
     border: 1px solid rgba(255, 77, 109, 0.5);
@@ -126,38 +139,43 @@ body {
     text-transform: uppercase;
 }
 
+/* Título da tela */
 .titulo-senha {
     font-size: 26px;
     color: #ff8fa3;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
     font-weight: 400;
     line-height: 1.4;
 }
 
-/* Dica (só na etapa 1) */
+/* ✅ DICA - AGORA VAI APARECER */
 .dica {
-    display: inline-block;
-    margin-bottom: 30px;
-    padding: 8px 20px;
-    background: rgba(255, 77, 109, 0.15);
-    border: 1px dashed rgba(255, 77, 109, 0.6);
+    display: block;
+    width: fit-content;
+    margin: 0 auto 30px auto;
+    padding: 12px 25px;
+    background: rgba(255, 77, 109, 0.2);
+    border: 2px dashed rgba(255, 77, 109, 0.7);
     border-radius: 50px;
-    font-size: 14px;
-    color: rgba(255, 200, 210, 0.9);
+    font-size: 15px;
+    color: #ffd9e0;
     letter-spacing: 2px;
     font-style: italic;
     line-height: 1.6;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
 }
 
 .dica strong {
     color: #ff4d6d;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    letter-spacing: 3px;
-    text-shadow: 0 0 12px rgba(255, 77, 109, 0.8);
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 1);
+    padding: 0 5px;
 }
 
+/* Input da senha */
 .input-senha {
     width: 100%;
     padding: 18px 25px;
@@ -172,7 +190,6 @@ body {
     transition: all 0.3s ease;
     letter-spacing: 3px;
     font-weight: 600;
-    margin-top: 10px;
 }
 
 .input-senha::placeholder {
@@ -190,6 +207,7 @@ body {
     background: rgba(0, 0, 0, 0.6);
 }
 
+/* Botão */
 .btn-desbloquear {
     margin-top: 25px;
     padding: 15px 50px;
@@ -217,6 +235,7 @@ body {
     transform: scale(0.98);
 }
 
+/* Erro */
 .erro-senha {
     margin-top: 18px;
     font-size: 15px;
@@ -240,20 +259,30 @@ body {
     80% { transform: translateX(6px); }
 }
 
+/* Sucesso */
 .tela-pergunta.sucesso {
     animation: sucessoAnim 0.8s ease forwards;
 }
 
 @keyframes sucessoAnim {
-    0% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
     50% {
         transform: scale(1.05);
         box-shadow: 0 0 100px rgba(255, 77, 109, 1);
     }
-    100% { transform: scale(0); opacity: 0; }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
 }
 
-/* CARTA */
+/* =====================================================
+   CARTA
+===================================================== */
+
 .carta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
     border: 2px solid rgba(255, 77, 109, 0.5);
@@ -385,24 +414,42 @@ body {
     filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
 }
 
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
 @media(max-width: 700px) {
-    body { padding: 20px 12px; }
+    body {
+        padding: 20px 12px;
+    }
 
     .tela-pergunta {
         padding: 40px 25px;
         border-radius: 20px;
     }
 
-    .cadeado { font-size: 55px; }
-    .titulo-senha { font-size: 20px; }
-    .etapa { font-size: 11px; padding: 5px 14px; }
-
-    .dica {
-        font-size: 12px;
-        padding: 6px 16px;
+    .cadeado {
+        font-size: 55px;
     }
 
-    .dica strong { font-size: 15px; }
+    .titulo-senha {
+        font-size: 20px;
+    }
+
+    .etapa {
+        font-size: 11px;
+        padding: 5px 14px;
+    }
+
+    .dica {
+        font-size: 13px;
+        padding: 10px 18px;
+        margin-bottom: 25px;
+    }
+
+    .dica strong {
+        font-size: 17px;
+    }
 
     .input-senha {
         font-size: 18px;
@@ -419,9 +466,20 @@ body {
         border-radius: 20px;
     }
 
-    .selo { font-size: 50px; margin-bottom: 18px; }
-    .data-carta { font-size: 12px; margin-bottom: 20px; }
-    .saudacao { font-size: 22px; margin-bottom: 22px; }
+    .selo {
+        font-size: 50px;
+        margin-bottom: 18px;
+    }
+
+    .data-carta {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .saudacao {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
 
     .texto-carta {
         font-size: 16px;
@@ -429,14 +487,29 @@ body {
         text-align: left;
     }
 
-    .texto-carta p { margin-bottom: 18px; text-indent: 20px; }
+    .texto-carta p {
+        margin-bottom: 18px;
+        text-indent: 20px;
+    }
 
-    .assinatura { font-size: 18px; margin-top: 35px; }
-    .assinatura .nome { font-size: 22px; }
+    .assinatura {
+        font-size: 18px;
+        margin-top: 35px;
+    }
 
-    .ps { font-size: 14px; margin-top: 30px; padding-top: 20px; }
+    .assinatura .nome {
+        font-size: 22px;
+    }
 
-    .coracao-final { font-size: 32px; }
+    .ps {
+        font-size: 14px;
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    .coracao-final {
+        font-size: 32px;
+    }
 }
 </style>
 </head>
@@ -444,11 +517,14 @@ body {
 
 <div class="floating-hearts" id="floatingHearts"></div>
 
-<!-- ETAPA 1 - COM DICA -->
+<!-- =====================================================
+     ETAPA 1 - COM DICA
+===================================================== -->
 <div class="tela-pergunta ativa" id="telaEtapa1">
     <span class="cadeado">🔒</span>
     <div class="etapa">Etapa 1 de 2</div>
     <h1 class="titulo-senha">Qual é a minha coisa favorita?</h1>
+    
     <div class="dica">
         Dica: começa com <strong>M</strong>
     </div>
@@ -470,7 +546,9 @@ body {
     </p>
 </div>
 
-<!-- ETAPA 2 - SEM DICA -->
+<!-- =====================================================
+     ETAPA 2 - SEM DICA
+===================================================== -->
 <div class="tela-pergunta" id="telaEtapa2">
     <span class="cadeado">💘</span>
     <div class="etapa">Etapa 2 de 2</div>
@@ -493,12 +571,21 @@ body {
     </p>
 </div>
 
-<!-- CARTA -->
+<!-- =====================================================
+     CARTA (escondida até acertar as 2 etapas)
+===================================================== -->
 <div class="carta" id="carta">
     <span class="selo">💌</span>
+
     <div class="linha-decorativa"></div>
-    <div class="data-carta">Com todo meu amor, hoje e sempre</div>
-    <div class="saudacao">Minha princesa,</div>
+
+    <div class="data-carta">
+        Com todo meu amor, hoje e sempre
+    </div>
+
+    <div class="saudacao">
+        Minha princesa,
+    </div>
 
     <div class="texto-carta">
         <p>
@@ -551,9 +638,15 @@ body {
 (function() {
     'use strict';
 
+    // =====================================================
+    // RESPOSTAS CORRETAS
+    // =====================================================
     const RESPOSTA_ETAPA_1 = 'maria';
     const RESPOSTA_ETAPA_2 = '01/09/2026';
 
+    // =====================================================
+    // ELEMENTOS
+    // =====================================================
     const telaEtapa1 = document.getElementById('telaEtapa1');
     const inputEtapa1 = document.getElementById('inputEtapa1');
     const btnEtapa1 = document.getElementById('btnEtapa1');
@@ -566,6 +659,9 @@ body {
 
     const carta = document.getElementById('carta');
 
+    // =====================================================
+    // CORAÇÕES FLUTUANTES
+    // =====================================================
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
         if (!container) return;
@@ -606,11 +702,15 @@ body {
         }
     });
 
+    // =====================================================
+    // ETAPA 1
+    // =====================================================
     function verificarEtapa1() {
         const valor = inputEtapa1.value.trim().toLowerCase();
 
         if (valor === RESPOSTA_ETAPA_1) {
             telaEtapa1.classList.add('sucesso');
+
             setTimeout(function() {
                 telaEtapa1.style.display = 'none';
                 telaEtapa1.classList.remove('ativa', 'sucesso');
@@ -622,12 +722,16 @@ body {
             erroEtapa1.classList.add('ativo');
             inputEtapa1.value = '';
             inputEtapa1.focus();
+
             setTimeout(function() {
                 erroEtapa1.classList.remove('ativo');
             }, 2000);
         }
     }
 
+    // =====================================================
+    // ETAPA 2
+    // =====================================================
     function verificarEtapa2() {
         let valor = inputEtapa2.value.trim();
         valor = valor.replace(/\s/g, '');
@@ -644,6 +748,7 @@ body {
 
         if (formatos.includes(valor)) {
             telaEtapa2.classList.add('sucesso');
+
             setTimeout(function() {
                 telaEtapa2.style.display = 'none';
                 telaEtapa2.classList.remove('ativa', 'sucesso');
@@ -654,23 +759,32 @@ body {
             erroEtapa2.classList.add('ativo');
             inputEtapa2.value = '';
             inputEtapa2.focus();
+
             setTimeout(function() {
                 erroEtapa2.classList.remove('ativo');
             }, 2000);
         }
     }
 
+    // =====================================================
+    // MÁSCARA DA DATA
+    // =====================================================
     inputEtapa2.addEventListener('input', function(e) {
         let valor = e.target.value.replace(/\D/g, '');
+
         if (valor.length > 2) {
             valor = valor.substring(0, 2) + '/' + valor.substring(2);
         }
         if (valor.length > 5) {
             valor = valor.substring(0, 5) + '/' + valor.substring(5, 9);
         }
+
         e.target.value = valor;
     });
 
+    // =====================================================
+    // EVENTOS
+    // =====================================================
     btnEtapa1.addEventListener('click', verificarEtapa1);
     inputEtapa1.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') verificarEtapa1();
@@ -687,7 +801,7 @@ body {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta carregada! Etapa 1: dica "M" | Etapa 2: sem dica');
+    console.log('💌 Carta com 2 etapas carregada!');
 
 })();
 </script>
