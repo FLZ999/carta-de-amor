@@ -328,12 +328,13 @@ body {
 }
 
 .saudacao {
-    font-size: 28px;
+    font-size: 26px;
     color: #ff8fa3;
     margin-bottom: 30px;
     font-weight: 400;
     text-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
     font-style: italic;
+    line-height: 1.6;
 }
 
 .texto-carta {
@@ -385,10 +386,6 @@ body {
     text-align: center;
     line-height: 1.9;
 }
-
-/* =====================================================
-   FOTO FINAL
-===================================================== */
 
 .foto-final {
     margin-top: 40px;
@@ -461,10 +458,6 @@ body {
     animation: pulsarCoracao 1.5s ease-in-out infinite;
     filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
 }
-
-/* =====================================================
-   ZOOM DA FOTO
-===================================================== */
 
 .zoom-foto {
     position: fixed;
@@ -568,7 +561,7 @@ body {
 
     .selo { font-size: 50px; margin-bottom: 18px; }
     .data-carta { font-size: 12px; margin-bottom: 20px; }
-    .saudacao { font-size: 22px; margin-bottom: 22px; }
+    .saudacao { font-size: 18px; margin-bottom: 22px; }
 
     .texto-carta {
         font-size: 16px;
@@ -667,40 +660,36 @@ body {
     </div>
 
     <div class="saudacao">
-        Minha princesa,
+        OIEE MINHA VIDA, MINHA BELEZA, MINHA BEBÊ AURA, MINHA DELICIOSA, MINHA MARAVILHOSA, MINHA PAIXÃO, MEU CHEIRO 🖤
     </div>
 
     <div class="texto-carta">
         <p>
-            Escrever essa carta é uma das coisas mais fáceis que já fiz, porque falar de você 
-            é falar do que eu sinto todos os dias. Você é a pessoa que faz meus dias mais 
-            leves, que transforma o comum em especial e que me faz sorrir só de pensar.
+            MEU 6 DO MEU 7 (AMOOOO), MINHA MAMÃE (esse eu amo mais ainda 😏 esse eu gosto mesmo viu rsrsrsrs mamãe safadinha), MULHER DA MINHA VIDA, RAZÃO DO MEU VIVER, RAZÃO DA MINHA FELICIDADE, RAZÃO DO MEU TESÃO (desculpa mas tive que colocar rsrs).
         </p>
 
         <p>
-            Eu te amo mais do que as palavras conseguem expressar. Amo seu jeitinho, amo seu 
-            sorriso, amo o som da sua voz, amo até o seu silêncio. Amo cada detalhe que te faz 
-            ser <span class="destaque">você</span>, porque é exatamente esse conjunto que me 
-            faz ter certeza de que é você que eu quero ao meu lado.
+            Esses dias meu bem você anda muito pra baixo, queria fazer isso aqui pra você pra tentar melhorar, ainda mais que passamos por uma situação não muito boa sabe, meio que uma discussão, não foi uma discussão, não sei o que categorizar o que seria, enfim, isso não importa agora. O que importa é que eu quero te fazer feliz mesmo que estamos por momentos difíceis.
         </p>
 
         <p>
-            Você é minha paz nos dias difíceis, minha alegria nos dias bons e minha força 
-            quando eu preciso. Não existe distância, tempo ou obstáculo que mude o que eu 
-            sinto por você. Você é a pessoa que eu escolhi amar, e continuo escolhendo todos 
-            os dias.
+            Vejo que você está sofrendo mais do que eu, por minha causa... eu sei, não sou perfeita, fazer o que né. Mas você pode ter certeza que ainda por cima de tudo isso minha princesa, <span class="destaque">EU EUZINHOOO TE AMOOO DEMAISS UM MUIITAOOO</span>.
         </p>
 
         <p>
-            Quero estar ao seu lado nos seus melhores momentos e também nos piores. Quero 
-            segurar sua mão quando você tiver medo, te abraçar quando você precisar e te 
-            lembrar sempre o quanto você é incrível, forte e especial.
+            E sempre vou te amar meu amor, mesmo que eu seja às vezes muito dura com você, não é pra te machucar ou não é por mal, mas sim porque eu quero te ensinar pra você aprender como que é meu bem. Eu sei que tenho um jeito duro, mas não tem que fazer meu amor, nunca vou fazer as coisas pra prejudicar a minha princesa, jamais.
         </p>
 
         <p>
-            <span class="destaque">Eu te amo muito, muito mesmo.</span> Mais do que qualquer 
-            palavra pode dizer, mais do que qualquer gesto pode mostrar. Você é meu presente 
-            favorito, minha melhor companhia e meu pensamento mais bonito todos os dias.
+            Então meu amor, nunca esqueça que eu te amo, apesar de tudo eu te amo de verdade, e faria qualquer coisa por você. Sei que se a gente ficar, iremos nos tornar uns dos casais mais belos que o planeta irá ver.
+        </p>
+
+        <p>
+            Sua lindeza, <span class="destaque">QUEM QUE É MINHA BEBÊ AURUDA???? VOCEEEEEE, COISA LINDA</span> 💕
+        </p>
+
+        <p style="text-align: center; text-indent: 0; margin-top: 30px;">
+            <span class="destaque">#MINHA-MULHER-MARAVILHOSA</span>
         </p>
     </div>
 
@@ -725,7 +714,6 @@ body {
     <div class="coracao-final">❤️</div>
 </div>
 
-<!-- ZOOM DA FOTO -->
 <div class="zoom-foto" id="zoomFoto">
     <span class="fechar-zoom" id="fecharZoom">×</span>
     <img src="" alt="Foto ampliada" id="fotoAmpliada">
@@ -735,15 +723,9 @@ body {
 (function() {
     'use strict';
 
-    // =====================================================
-    // RESPOSTAS
-    // =====================================================
     const RESPOSTA_ETAPA_1 = 'maria';
     const RESPOSTA_ETAPA_2 = '01/09/2026';
 
-    // =====================================================
-    // ELEMENTOS
-    // =====================================================
     const telaEtapa1 = document.getElementById('telaEtapa1');
     const inputEtapa1 = document.getElementById('inputEtapa1');
     const btnEtapa1 = document.getElementById('btnEtapa1');
@@ -756,9 +738,6 @@ body {
 
     const carta = document.getElementById('carta');
 
-    // =====================================================
-    // ZOOM DA FOTO
-    // =====================================================
     const fotoCasal = document.getElementById('fotoCasal');
     const zoomFoto = document.getElementById('zoomFoto');
     const fotoAmpliada = document.getElementById('fotoAmpliada');
@@ -797,9 +776,6 @@ body {
         });
     }
 
-    // =====================================================
-    // CORAÇÕES FLUTUANTES
-    // =====================================================
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
         if (!container) return;
@@ -840,9 +816,6 @@ body {
         }
     });
 
-    // =====================================================
-    // ETAPA 1
-    // =====================================================
     function verificarEtapa1() {
         const valor = inputEtapa1.value.trim().toLowerCase();
 
@@ -867,9 +840,6 @@ body {
         }
     }
 
-    // =====================================================
-    // ETAPA 2
-    // =====================================================
     function verificarEtapa2() {
         let valor = inputEtapa2.value.trim();
         valor = valor.replace(/\s/g, '');
@@ -904,7 +874,6 @@ body {
         }
     }
 
-    // Máscara da data
     inputEtapa2.addEventListener('input', function(e) {
         let valor = e.target.value.replace(/\D/g, '');
 
@@ -918,7 +887,6 @@ body {
         e.target.value = valor;
     });
 
-    // Eventos
     btnEtapa1.addEventListener('click', verificarEtapa1);
     inputEtapa1.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') verificarEtapa1();
@@ -935,7 +903,7 @@ body {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta carregada com zoom na foto!');
+    console.log('💌 Carta carregada!');
 
 })();
 </script>
