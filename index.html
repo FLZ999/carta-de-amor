@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Carta de Amor</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, #1a0010 0%, #2d0517 50%, #1a0010 100%);
+    background-attachment: fixed;
+    color: white;
+    font-family: Georgia, 'Times New Roman', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px 15px;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* =====================================================
+   CORAÇÕES FLUTUANTES DE FUNDO
+===================================================== */
+
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp 10s ease-in infinite;
+    opacity: 0;
+    color: #ff4d6d;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.8);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.3) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.1) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.carta {
+    background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
+    border: 2px solid rgba(255, 77, 109, 0.5);
+    border-radius: 25px;
+    padding: 60px 55px;
+    max-width: 720px;
+    width: 100%;
+    box-shadow:
+        0 0 60px rgba(255, 23, 68, 0.3),
+        0 0 120px rgba(255, 23, 68, 0.15),
+        inset 0 0 80px rgba(255, 23, 68, 0.05);
+    backdrop-filter: blur(15px);
+    position: relative;
+    z-index: 10;
+    animation: abrirCarta 1.5s ease;
+}
+
+@keyframes abrirCarta {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Selo/coração no topo */
+.selo {
+    font-size: 65px;
+    text-align: center;
+    display: block;
+    margin-bottom: 25px;
+    animation: pulsarCoracao 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
+}
+
+@keyframes pulsarCoracao {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Linha decorativa */
+.linha-decorativa {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff4d6d, transparent);
+    margin: 25px 0;
+    box-shadow: 0 0 10px rgba(255, 77, 109, 0.8);
+}
+
+/* Data no topo */
+.data-carta {
+    text-align: right;
+    color: rgba(255, 200, 210, 0.7);
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+/* Saudação */
+.saudacao {
+    font-size: 28px;
+    color: #ff8fa3;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
+    font-style: italic;
+}
+
+/* Corpo do texto */
+.texto-carta {
+    font-size: 19px;
+    line-height: 2.1;
+    color: #f5e6ea;
+    text-align: justify;
+    letter-spacing: 0.3px;
+}
+
+.texto-carta p {
+    margin-bottom: 22px;
+    text-indent: 30px;
+}
+
+/* Destaque */
+.destaque {
+    color: #ff4d6d;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+    font-style: italic;
+}
+
+/* Assinatura */
+.assinatura {
+    margin-top: 50px;
+    text-align: right;
+    font-size: 22px;
+    font-style: italic;
+    color: #ff8fa3;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
+    line-height: 1.8;
+}
+
+.assinatura .nome {
+    font-size: 28px;
+    color: #ff4d6d;
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    text-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
+}
+
+/* P.S. */
+.ps {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed rgba(255, 77, 109, 0.4);
+    font-size: 16px;
+    color: rgba(255, 200, 210, 0.8);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.9;
+}
+
+/* Coração no final */
+.coracao-final {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 30px;
+    animation: pulsarCoracao 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
+}
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width: 700px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .carta {
+        padding: 40px 25px;
+        border-radius: 20px;
+    }
+
+    .selo {
+        font-size: 50px;
+        margin-bottom: 18px;
+    }
+
+    .data-carta {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .saudacao {
+        font-size: 22px;
+        margin-bottom: 22px;
+    }
+
+    .texto-carta {
+        font-size: 16px;
+        line-height: 1.9;
+        text-align: left;
+    }
+
+    .texto-carta p {
+        margin-bottom: 18px;
+        text-indent: 20px;
+    }
+
+    .assinatura {
+        font-size: 18px;
+        margin-top: 35px;
+    }
+
+    .assinatura .nome {
+        font-size: 22px;
+    }
+
+    .ps {
+        font-size: 14px;
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    .coracao-final {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<div class="carta">
+    <span class="selo">💌</span>
+
+    <div class="linha-decorativa"></div>
+
+    <div class="data-carta">
+        Com todo meu amor, hoje e sempre
+    </div>
+
+    <div class="saudacao">
+        Minha princesa,
+    </div>
+
+    <div class="texto-carta">
+        <p>
+            Escrever essa carta é uma das coisas mais fáceis que já fiz, porque falar de você 
+            é falar do que eu sinto todos os dias. Você é a pessoa que faz meus dias mais 
+            leves, que transforma o comum em especial e que me faz sorrir só de pensar.
+        </p>
+
+        <p>
+            Eu te amo mais do que as palavras conseguem expressar. Amo seu jeitinho, amo seu 
+            sorriso, amo o som da sua voz, amo até o seu silêncio. Amo cada detalhe que te faz 
+            ser <span class="destaque">você</span>, porque é exatamente esse conjunto que me 
+            faz ter certeza de que é você que eu quero ao meu lado.
+        </p>
+
+        <p>
+            Você é minha paz nos dias difíceis, minha alegria nos dias bons e minha força 
+            quando eu preciso. Não existe distância, tempo ou obstáculo que mude o que eu 
+            sinto por você. Você é a pessoa que eu escolhi amar, e continuo escolhendo todos 
+            os dias.
+        </p>
+
+        <p>
+            Quero estar ao seu lado nos seus melhores momentos e também nos piores. Quero 
+            segurar sua mão quando você tiver medo, te abraçar quando você precisar e te 
+            lembrar sempre o quanto você é incrível, forte e especial.
+        </p>
+
+        <p>
+            <span class="destaque">Eu te amo muito, muito mesmo.</span> Mais do que qualquer 
+            palavra pode dizer, mais do que qualquer gesto pode mostrar. Você é meu presente 
+            favorito, minha melhor companhia e meu pensamento mais bonito todos os dias.
+        </p>
+    </div>
+
+    <div class="assinatura">
+        Com todo meu amor,
+        <span class="nome">Bryan 🖤</span>
+    </div>
+
+    <div class="ps">
+        P.S. Se um dia você esquecer o quanto eu te amo, volta aqui e lê essa carta de novo. 
+        Porque o que eu sinto por você não tem data, não tem prazo e não tem fim. 💕
+    </div>
+
+    <div class="coracao-final">❤️</div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // Corações flutuando no fundo
+    function criarCoracao() {
+        const container = document.getElementById('floatingHearts');
+        if (!container) return;
+
+        const coracoes = ['❤️', '🖤', '💕', '💖', '💗', '💓'];
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.textContent = coracoes[Math.floor(Math.random() * coracoes.length)];
+
+        const size = Math.random() * 20 + 16;
+        heart.style.fontSize = size + 'px';
+        heart.style.left = Math.random() * 100 + '%';
+
+        const duration = Math.random() * 6 + 8;
+        heart.style.animationDuration = duration + 's';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+
+        container.appendChild(heart);
+
+        setTimeout(function() {
+            if (heart.parentNode) {
+                heart.remove();
+            }
+        }, duration * 1000 + 6000);
+    }
+
+    // Cria corações a cada 500ms
+    let intervaloCoracoes = setInterval(criarCoracao, 500);
+
+    // Cria alguns imediatamente
+    for (let i = 0; i < 12; i++) {
+        setTimeout(criarCoracao, i * 200);
+    }
+
+    // Pausa corações quando a aba não está visível
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            clearInterval(intervaloCoracoes);
+        } else {
+            intervaloCoracoes = setInterval(criarCoracao, 500);
+        }
+    });
+
+    window.addEventListener('beforeunload', function() {
+        clearInterval(intervaloCoracoes);
+    });
+
+    console.log('💌 Carta de amor carregada!');
+
+})();
+</script>
+
+</body>
+</html>
