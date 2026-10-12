@@ -32,10 +32,6 @@ body {
     overflow-y: auto;
 }
 
-/* =====================================================
-   CORAÇÕES FLUTUANTES DE FUNDO
-===================================================== */
-
 .floating-hearts {
     position: fixed;
     top: 0;
@@ -61,22 +57,15 @@ body {
         transform: translateY(100vh) scale(0.3) rotate(0deg);
         opacity: 0;
     }
-    10% {
-        opacity: 0.8;
-    }
-    90% {
-        opacity: 0.8;
-    }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
     100% {
         transform: translateY(-10vh) scale(1.1) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* =====================================================
-   TELAS DE PERGUNTA
-===================================================== */
-
+/* TELAS DE PERGUNTA */
 .tela-pergunta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
     border: 2px solid rgba(255, 77, 109, 0.5);
@@ -111,7 +100,6 @@ body {
     }
 }
 
-/* Cadeado */
 .cadeado {
     font-size: 70px;
     display: block;
@@ -121,15 +109,10 @@ body {
 }
 
 @keyframes pulsarCadeado {
-    0%, 100% { 
-        transform: scale(1) rotate(0deg);
-    }
-    50% { 
-        transform: scale(1.1) rotate(-5deg);
-    }
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(-5deg); }
 }
 
-/* Número da etapa */
 .etapa {
     display: inline-block;
     margin-bottom: 20px;
@@ -143,41 +126,15 @@ body {
     text-transform: uppercase;
 }
 
-/* Título da tela */
 .titulo-senha {
     font-size: 26px;
     color: #ff8fa3;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
     font-weight: 400;
     line-height: 1.4;
 }
 
-/* Dica */
-.dica {
-    display: inline-block;
-    margin-top: 8px;
-    margin-bottom: 30px;
-    padding: 8px 20px;
-    background: rgba(255, 77, 109, 0.15);
-    border: 1px dashed rgba(255, 77, 109, 0.6);
-    border-radius: 50px;
-    font-size: 14px;
-    color: rgba(255, 200, 210, 0.9);
-    letter-spacing: 2px;
-    font-style: italic;
-    line-height: 1.6;
-}
-
-.dica strong {
-    color: #ff4d6d;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-shadow: 0 0 12px rgba(255, 77, 109, 0.8);
-}
-
-/* Input da senha */
 .input-senha {
     width: 100%;
     padding: 18px 25px;
@@ -209,7 +166,6 @@ body {
     background: rgba(0, 0, 0, 0.6);
 }
 
-/* Botão */
 .btn-desbloquear {
     margin-top: 25px;
     padding: 15px 50px;
@@ -237,7 +193,6 @@ body {
     transform: scale(0.98);
 }
 
-/* Mensagem de erro */
 .erro-senha {
     margin-top: 18px;
     font-size: 15px;
@@ -261,30 +216,20 @@ body {
     80% { transform: translateX(6px); }
 }
 
-/* Animação de sucesso */
 .tela-pergunta.sucesso {
     animation: sucessoAnim 0.8s ease forwards;
 }
 
 @keyframes sucessoAnim {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0% { transform: scale(1); opacity: 1; }
     50% {
         transform: scale(1.05);
         box-shadow: 0 0 100px rgba(255, 77, 109, 1);
     }
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
+    100% { transform: scale(0); opacity: 0; }
 }
 
-/* =====================================================
-   CARTA
-===================================================== */
-
+/* CARTA */
 .carta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
     border: 2px solid rgba(255, 77, 109, 0.5);
@@ -416,41 +361,17 @@ body {
     filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
 }
 
-/* =====================================================
-   RESPONSIVO
-===================================================== */
-
 @media(max-width: 700px) {
-    body {
-        padding: 20px 12px;
-    }
+    body { padding: 20px 12px; }
 
     .tela-pergunta {
         padding: 40px 25px;
         border-radius: 20px;
     }
 
-    .cadeado {
-        font-size: 55px;
-    }
-
-    .titulo-senha {
-        font-size: 20px;
-    }
-
-    .etapa {
-        font-size: 11px;
-        padding: 5px 14px;
-    }
-
-    .dica {
-        font-size: 12px;
-        padding: 6px 16px;
-    }
-
-    .dica strong {
-        font-size: 15px;
-    }
+    .cadeado { font-size: 55px; }
+    .titulo-senha { font-size: 20px; }
+    .etapa { font-size: 11px; padding: 5px 14px; }
 
     .input-senha {
         font-size: 18px;
@@ -467,20 +388,9 @@ body {
         border-radius: 20px;
     }
 
-    .selo {
-        font-size: 50px;
-        margin-bottom: 18px;
-    }
-
-    .data-carta {
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-
-    .saudacao {
-        font-size: 22px;
-        margin-bottom: 22px;
-    }
+    .selo { font-size: 50px; margin-bottom: 18px; }
+    .data-carta { font-size: 12px; margin-bottom: 20px; }
+    .saudacao { font-size: 22px; margin-bottom: 22px; }
 
     .texto-carta {
         font-size: 16px;
@@ -488,29 +398,14 @@ body {
         text-align: left;
     }
 
-    .texto-carta p {
-        margin-bottom: 18px;
-        text-indent: 20px;
-    }
+    .texto-carta p { margin-bottom: 18px; text-indent: 20px; }
 
-    .assinatura {
-        font-size: 18px;
-        margin-top: 35px;
-    }
+    .assinatura { font-size: 18px; margin-top: 35px; }
+    .assinatura .nome { font-size: 22px; }
 
-    .assinatura .nome {
-        font-size: 22px;
-    }
+    .ps { font-size: 14px; margin-top: 30px; padding-top: 20px; }
 
-    .ps {
-        font-size: 14px;
-        margin-top: 30px;
-        padding-top: 20px;
-    }
-
-    .coracao-final {
-        font-size: 32px;
-    }
+    .coracao-final { font-size: 32px; }
 }
 </style>
 </head>
@@ -518,16 +413,11 @@ body {
 
 <div class="floating-hearts" id="floatingHearts"></div>
 
-<!-- =====================================================
-     ETAPA 1: PERGUNTA SOBRE COISA FAVORITA
-===================================================== -->
+<!-- ETAPA 1 (SEM DICA) -->
 <div class="tela-pergunta ativa" id="telaEtapa1">
     <span class="cadeado">🔒</span>
     <div class="etapa">Etapa 1 de 2</div>
     <h1 class="titulo-senha">Qual é a minha coisa favorita?</h1>
-    <div class="dica">
-        Dica: começa com <strong>M</strong>
-    </div>
 
     <input 
         type="text" 
@@ -546,18 +436,11 @@ body {
     </p>
 </div>
 
-<!-- =====================================================
-     ETAPA 2: PERGUNTA SOBRE A DATA
-===================================================== -->
+<!-- ETAPA 2 (SEM DICA) -->
 <div class="tela-pergunta" id="telaEtapa2">
     <span class="cadeado">💘</span>
     <div class="etapa">Etapa 2 de 2</div>
     <h1 class="titulo-senha">Quando a gente se conheceu?</h1>
-    <div class="dica">
-        Dica: dia <strong>1</strong> do mês <strong>9</strong> do ano <strong>2026</strong>
-        <br>
-        <small style="opacity: 0.7; letter-spacing: 1px;">(formato: DD/MM/AAAA)</small>
-    </div>
 
     <input 
         type="text" 
@@ -576,21 +459,12 @@ body {
     </p>
 </div>
 
-<!-- =====================================================
-     CARTA (escondida até acertar as 2 etapas)
-===================================================== -->
+<!-- CARTA -->
 <div class="carta" id="carta">
     <span class="selo">💌</span>
-
     <div class="linha-decorativa"></div>
-
-    <div class="data-carta">
-        Com todo meu amor, hoje e sempre
-    </div>
-
-    <div class="saudacao">
-        Minha princesa,
-    </div>
+    <div class="data-carta">Com todo meu amor, hoje e sempre</div>
+    <div class="saudacao">Minha princesa,</div>
 
     <div class="texto-carta">
         <p>
@@ -643,36 +517,21 @@ body {
 (function() {
     'use strict';
 
-    // =====================================================
-    // RESPOSTAS CORRETAS
-    // =====================================================
     const RESPOSTA_ETAPA_1 = 'maria';
     const RESPOSTA_ETAPA_2 = '01/09/2026';
 
-    // =====================================================
-    // ELEMENTOS - ETAPA 1
-    // =====================================================
     const telaEtapa1 = document.getElementById('telaEtapa1');
     const inputEtapa1 = document.getElementById('inputEtapa1');
     const btnEtapa1 = document.getElementById('btnEtapa1');
     const erroEtapa1 = document.getElementById('erroEtapa1');
 
-    // =====================================================
-    // ELEMENTOS - ETAPA 2
-    // =====================================================
     const telaEtapa2 = document.getElementById('telaEtapa2');
     const inputEtapa2 = document.getElementById('inputEtapa2');
     const btnEtapa2 = document.getElementById('btnEtapa2');
     const erroEtapa2 = document.getElementById('erroEtapa2');
 
-    // =====================================================
-    // ELEMENTOS - CARTA
-    // =====================================================
     const carta = document.getElementById('carta');
 
-    // =====================================================
-    // CORAÇÕES FLUTUANTES
-    // =====================================================
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
         if (!container) return;
@@ -713,16 +572,11 @@ body {
         }
     });
 
-    // =====================================================
-    // ETAPA 1 - VERIFICAR RESPOSTA
-    // =====================================================
     function verificarEtapa1() {
         const valor = inputEtapa1.value.trim().toLowerCase();
 
         if (valor === RESPOSTA_ETAPA_1) {
-            // ACERTOU!
             telaEtapa1.classList.add('sucesso');
-
             setTimeout(function() {
                 telaEtapa1.style.display = 'none';
                 telaEtapa1.classList.remove('ativa', 'sucesso');
@@ -731,27 +585,19 @@ body {
                 inputEtapa2.focus();
             }, 800);
         } else {
-            // ERROU!
             erroEtapa1.classList.add('ativo');
             inputEtapa1.value = '';
             inputEtapa1.focus();
-
             setTimeout(function() {
                 erroEtapa1.classList.remove('ativo');
             }, 2000);
         }
     }
 
-    // =====================================================
-    // ETAPA 2 - VERIFICAR RESPOSTA
-    // =====================================================
     function verificarEtapa2() {
         let valor = inputEtapa2.value.trim();
-
-        // Remove espaços extras e normaliza
         valor = valor.replace(/\s/g, '');
 
-        // Aceita formatos: 01/09/2026, 1/9/2026, 01092026, 1-9-2026
         const formatos = [
             '01/09/2026',
             '1/9/2026',
@@ -763,9 +609,7 @@ body {
         ];
 
         if (formatos.includes(valor)) {
-            // ACERTOU!
             telaEtapa2.classList.add('sucesso');
-
             setTimeout(function() {
                 telaEtapa2.style.display = 'none';
                 telaEtapa2.classList.remove('ativa', 'sucesso');
@@ -773,64 +617,43 @@ body {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 800);
         } else {
-            // ERROU!
             erroEtapa2.classList.add('ativo');
             inputEtapa2.value = '';
             inputEtapa2.focus();
-
             setTimeout(function() {
                 erroEtapa2.classList.remove('ativo');
             }, 2000);
         }
     }
 
-    // =====================================================
-    // MÁSCARA PARA DIGITAR A DATA
-    // =====================================================
     inputEtapa2.addEventListener('input', function(e) {
-        let valor = e.target.value.replace(/\D/g, ''); // só números
-
+        let valor = e.target.value.replace(/\D/g, '');
         if (valor.length > 2) {
             valor = valor.substring(0, 2) + '/' + valor.substring(2);
         }
         if (valor.length > 5) {
             valor = valor.substring(0, 5) + '/' + valor.substring(5, 9);
         }
-
         e.target.value = valor;
     });
 
-    // =====================================================
-    // EVENTOS - ETAPA 1
-    // =====================================================
     btnEtapa1.addEventListener('click', verificarEtapa1);
-
     inputEtapa1.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            verificarEtapa1();
-        }
+        if (e.key === 'Enter') verificarEtapa1();
     });
 
-    // =====================================================
-    // EVENTOS - ETAPA 2
-    // =====================================================
     btnEtapa2.addEventListener('click', verificarEtapa2);
-
     inputEtapa2.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            verificarEtapa2();
-        }
+        if (e.key === 'Enter') verificarEtapa2();
     });
 
-    // Foco inicial
     inputEtapa1.focus();
 
     window.addEventListener('beforeunload', function() {
         clearInterval(intervaloCoracoes);
     });
 
-    console.log('💌 Carta com 2 etapas carregada!');
-    console.log('Etapa 1: Maria | Etapa 2: 01/09/2026');
+    console.log('💌 Carta com 2 etapas (sem dicas) carregada!');
 
 })();
 </script>
