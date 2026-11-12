@@ -108,15 +108,10 @@ body {
 }
 
 @keyframes pulsarCadeado {
-    0%, 100% { 
-        transform: scale(1) rotate(0deg);
-    }
-    50% { 
-        transform: scale(1.1) rotate(-5deg);
-    }
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(-5deg); }
 }
 
-/* NOVA DECORAÇÃO PARA A FRASE I LOVE YOU */
 .decoracao-amor {
     font-size: 24px;
     color: #ff4d6d;
@@ -132,7 +127,6 @@ body {
     50% { opacity: 1; transform: scale(1.05); }
 }
 
-/* NOVA DECORAÇÃO PARA O 67 */
 .decoracao-numero {
     font-size: 30px;
     margin-bottom: 25px;
@@ -274,18 +268,9 @@ body {
 }
 
 @keyframes sucessoAnim {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 100px rgba(255, 77, 109, 1);
-    }
-    100% {
-        transform: scale(0);
-        opacity: 0;
-    }
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); box-shadow: 0 0 100px rgba(255, 77, 109, 1); }
+    100% { transform: scale(0); opacity: 0; }
 }
 
 .carta {
@@ -311,14 +296,8 @@ body {
 }
 
 @keyframes cartaAparece {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    from { opacity: 0; transform: scale(0.8) translateY(50px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .selo {
@@ -401,79 +380,153 @@ body {
     text-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
 }
 
-.ps {
+/* BOTÃO SIM */
+.btn-resposta {
     margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px dashed rgba(255, 77, 109, 0.4);
-    font-size: 16px;
-    color: rgba(255, 200, 210, 0.8);
-    font-style: italic;
-    text-align: center;
-    line-height: 1.9;
-}
-
-.foto-final {
-    margin-top: 40px;
-    text-align: center;
-    animation: aparecerFoto 1.5s ease 0.5s both;
-}
-
-@keyframes aparecerFoto {
-    from {
-        opacity: 0;
-        transform: scale(0.8) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.foto-final img {
-    max-width: 100%;
-    width: 380px;
-    height: auto;
-    border-radius: 20px;
-    border: 3px solid rgba(255, 77, 109, 0.7);
-    box-shadow:
-        0 0 30px rgba(255, 77, 109, 0.6),
-        0 0 60px rgba(255, 77, 109, 0.4),
-        0 10px 40px rgba(0, 0, 0, 0.6);
-    transition: all 0.4s ease;
-    animation: pulsarFoto 3s ease-in-out infinite;
+    padding: 18px 30px;
+    font-size: 20px;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff1744, #a50022);
+    border: 3px solid #ff8fa3;
+    border-radius: 50px;
     cursor: pointer;
-}
-
-@keyframes pulsarFoto {
-    0%, 100% { 
-        box-shadow:
-            0 0 30px rgba(255, 77, 109, 0.6),
-            0 0 60px rgba(255, 77, 109, 0.4),
-            0 10px 40px rgba(0, 0, 0, 0.6);
-    }
-    50% { 
-        box-shadow:
-            0 0 45px rgba(255, 77, 109, 0.9),
-            0 0 90px rgba(255, 77, 109, 0.6),
-            0 10px 40px rgba(0, 0, 0, 0.6);
-    }
-}
-
-.foto-final img:hover {
-    transform: scale(1.03);
-    box-shadow:
-        0 0 60px rgba(255, 77, 109, 1),
-        0 0 120px rgba(255, 77, 109, 0.7);
-}
-
-.foto-final .legenda {
-    margin-top: 20px;
-    color: #ff8fa3;
-    font-size: 16px;
-    font-style: italic;
+    box-shadow: 0 0 40px rgba(255, 77, 109, 0.8);
+    animation: pulsarBotao 2s infinite;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
-    line-height: 1.8;
+    transition: all 0.3s ease;
+}
+
+.btn-resposta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px rgba(255, 77, 109, 1);
+}
+
+@keyframes pulsarBotao {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); box-shadow: 0 0 60px rgba(255, 77, 109, 1); }
+}
+
+/* MODAL DE RESPOSTA */
+.modal-resposta {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-resposta.ativo {
+    display: flex;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-box {
+    background: linear-gradient(145deg, rgba(60, 10, 30, 0.95), rgba(30, 2, 12, 0.98));
+    border: 2px solid rgba(255, 77, 109, 0.8);
+    border-radius: 25px;
+    padding: 40px 35px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 60px rgba(255, 23, 68, 0.5);
+}
+
+.modal-box h2 {
+    color: #ff8fa3;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.modal-box p {
+    color: #ffd9e0;
+    font-size: 15px;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.input-resposta {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 77, 109, 0.5);
+    border-radius: 15px;
+    color: #fff;
+    font-size: 16px;
+    font-family: Georgia, serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-resposta:focus {
+    border-color: #ff4d6d;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+}
+
+.btn-enviar {
+    background: linear-gradient(135deg, #ff1744, #a50022);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: Georgia, serif;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 50px rgba(255, 23, 68, 0.8);
+}
+
+.btn-fechar {
+    background: transparent;
+    color: #ff8fa3;
+    border: 1px solid #ff8fa3;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-fechar:hover {
+    background: rgba(255, 143, 163, 0.1);
+}
+
+/* MENSAGEM DE CONFIRMAÇÃO (QUE APARECE DEPOIS QUE SALVA) */
+.msg-sucesso {
+    display: none;
+    color: #ff8fa3;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 20px;
+    animation: pulsarCoracao 1.5s ease-in-out infinite;
 }
 
 .coracao-final {
@@ -484,145 +537,17 @@ body {
     filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
 }
 
-.zoom-foto {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(15px);
-    z-index: 5000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    cursor: zoom-out;
-    animation: fadeInZoom 0.4s ease;
-}
-
-.zoom-foto.ativo {
-    display: flex;
-}
-
-@keyframes fadeInZoom {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.zoom-foto img {
-    max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    border-radius: 20px;
-    border: 3px solid rgba(255, 77, 109, 0.8);
-    box-shadow:
-        0 0 40px rgba(255, 23, 68, 0.8),
-        0 0 80px rgba(255, 23, 68, 0.5),
-        0 0 120px rgba(255, 23, 68, 0.3);
-    animation: zoomIn 0.4s ease;
-}
-
-@keyframes zoomIn {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.zoom-foto .fechar-zoom {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    color: #ff3b5c;
-    font-size: 45px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
-    z-index: 5001;
-    line-height: 1;
-    font-family: Arial, sans-serif;
-}
-
-.zoom-foto .fechar-zoom:hover {
-    transform: scale(1.2) rotate(90deg);
-    color: white;
-}
-
 @media(max-width: 700px) {
     body { padding: 20px 12px; }
-
-    .tela-pergunta {
-        padding: 40px 25px;
-        border-radius: 20px;
-    }
-
+    .tela-pergunta, .carta, .modal-box { padding: 40px 25px; }
     .cadeado { font-size: 55px; margin-bottom: 10px; }
-    .decoracao-amor { font-size: 20px; }
-    .decoracao-numero { font-size: 26px; }
     .titulo-senha { font-size: 20px; }
-    .etapa { font-size: 11px; padding: 5px 14px; }
-
-    .dica {
-        font-size: 13px;
-        padding: 10px 18px;
-        margin-bottom: 25px;
-    }
-
-    .dica strong { font-size: 17px; }
-
-    .input-senha {
-        font-size: 18px;
-        padding: 15px 20px;
-    }
-
-    .btn-desbloquear {
-        font-size: 15px;
-        padding: 13px 35px;
-    }
-
-    .carta {
-        padding: 40px 25px;
-        border-radius: 20px;
-    }
-
-    .selo { font-size: 50px; margin-bottom: 18px; }
-    .data-carta { font-size: 12px; margin-bottom: 20px; }
-    .saudacao { font-size: 18px; margin-bottom: 22px; }
-
-    .texto-carta {
-        font-size: 16px;
-        line-height: 1.9;
-        text-align: left;
-    }
-
-    .texto-carta p { margin-bottom: 18px; text-indent: 20px; }
-
-    .assinatura { font-size: 18px; margin-top: 35px; }
+    .texto-carta { font-size: 16px; line-height: 1.9; text-align: left; }
+    .texto-carta p { text-indent: 20px; }
+    .saudacao { font-size: 20px; }
+    .assinatura { font-size: 18px; }
     .assinatura .nome { font-size: 22px; }
-
-    .ps { font-size: 14px; margin-top: 30px; padding-top: 20px; }
-
-    .foto-final img {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .foto-final .legenda {
-        font-size: 14px;
-    }
-
-    .coracao-final { font-size: 32px; }
-
-    .zoom-foto {
-        padding: 15px;
-    }
-
-    .zoom-foto .fechar-zoom {
-        font-size: 35px;
-        top: 15px;
-        right: 20px;
-    }
+    .btn-resposta { font-size: 18px; padding: 15px 20px; }
 }
 </style>
 </head>
@@ -630,101 +555,58 @@ body {
 
 <div class="floating-hearts" id="floatingHearts"></div>
 
+<!-- TELA 1 -->
 <div class="tela-pergunta ativa" id="telaEtapa1">
     <span class="cadeado">🔒</span>
-    
-    <!-- FRASE ADICIONADA AQUI -->
     <div class="decoracao-amor">ℐ𝓁ℴ𝓋ℯ 𝓎ℴ𝓊 &lt;3</div>
-
     <div class="etapa">Etapa 1 de 2</div>
     <h1 class="titulo-senha">Quem é minha princesa mais auruda?</h1>
-    <div class="dica">
-        Dica: começa com <strong>C</strong>
-    </div>
-
-    <input 
-        type="text" 
-        class="input-senha" 
-        id="inputEtapa1" 
-        placeholder="Digite aqui..." 
-        autocomplete="off"
-        maxlength="20">
-
-    <button class="btn-desbloquear" id="btnEtapa1">
-        Continuar 💕
-    </button>
-
-    <p class="erro-senha" id="erroEtapa1">
-        Hmm... tenta de novo! 🥺
-    </p>
+    <div class="dica">Dica: começa com <strong>C</strong></div>
+    <input type="text" class="input-senha" id="inputEtapa1" placeholder="Digite aqui..." autocomplete="off" maxlength="20">
+    <button class="btn-desbloquear" id="btnEtapa1">Continuar 💕</button>
+    <p class="erro-senha" id="erroEtapa1">Hmm... tenta de novo! 🥺</p>
 </div>
 
+<!-- TELA 2 -->
 <div class="tela-pergunta" id="telaEtapa2">
     <span class="cadeado">💘</span>
-
-    <!-- FRASE ADICIONADA AQUI -->
     <div class="decoracao-numero">6🫲🤪 🫱7</div>
-
     <div class="etapa">Etapa 2 de 2</div>
     <h1 class="titulo-senha">Qual é o nosso número favorito?</h1>
-
-    <input 
-        type="text" 
-        class="input-senha" 
-        id="inputEtapa2" 
-        placeholder="Digite o número..." 
-        autocomplete="off"
-        maxlength="2">
-
-    <button class="btn-desbloquear" id="btnEtapa2">
-        Desbloquear 💕
-    </button>
-
-    <p class="erro-senha" id="erroEtapa2">
-        Hmm... tenta de novo! 🥺
-    </p>
+    <input type="text" class="input-senha" id="inputEtapa2" placeholder="Digite o número..." autocomplete="off" maxlength="2">
+    <button class="btn-desbloquear" id="btnEtapa2">Desbloquear 💕</button>
+    <p class="erro-senha" id="erroEtapa2">Hmm... tenta de novo! 🥺</p>
 </div>
 
+<!-- A CARTA -->
 <div class="carta" id="carta">
     <span class="selo">💌</span>
-
     <div class="linha-decorativa"></div>
-
-    <div class="data-carta">
-        Com todo meu amor, hoje e sempre
-    </div>
+    <div class="data-carta">Com todo meu amor, hoje e sempre</div>
 
     <div class="saudacao">
-        OIEE MINHA VIDA, MINHA BELEZA, MINHA BEBÊ AURUDA, MINHA DELICIOSA, MINHA MARAVILHOSA, MINHA PAIXÃO, MEU CHEIRO 🖤
+        OIEEE CAMILAAAAA TUDO BEM MINHA AURIDINHA.COM??? 🖤
     </div>
 
     <div class="texto-carta">
         <p>
-            MEU 6 DO MEU 7 (AMOOOO), MINHA MAMÃE (esse eu amo mais ainda 😏 esse eu gosto mesmo viu rsrsrsrs mamãe safadinha), MULHER DA MINHA VIDA, RAZÃO DO MEU VIVER, RAZÃO DA MINHA FELICIDADE, RAZÃO DO MEU TESÃO (desculpa mas tive que colocar rsrs).
+            Farmadora de aura nata, fiz esse site pra você, ele é especial. No final da carta vai ter um presente maior do que você imagina (eu acho pelo menos, kakaaka).
         </p>
 
         <p>
-            Esses dias meu bem você anda muito pra baixo, queria fazer isso aqui pra você pra tentar melhorar, ainda mais que passamos por uma situação não muito boa sabe, meio que uma discussão, não foi uma discussão, não sei o que categorizar o que seria, enfim, isso não importa agora. O que importa é que eu quero te fazer feliz mesmo que estamos por momentos difíceis.
+            Como você tá princesa? Seguinte: antes a gente não deu certo, eu não fui suficiente, não era bom, nunca tive experiência também. Mas agora eu me sinto mais confiável, nossas conversas são melhores, consigo fazer você rir. Amo ouvir suas risadas, fico contente comigo mesmo, sabendo que estou podendo ser eu mesmo por conta que você tem o mesmo humor que o meu. Antes eu tinha medo de ser quem eu era, porém vi que se eu fosse só eu mesmo, as nossas conversas, o jeito que te faço rir, iam durar muito mais. E é isso o que estou fazendo agora.
         </p>
 
         <p>
-            Vejo que você está sofrendo mais do que eu, por minha causa... eu sei, não sou perfeita, fazer o que né. Mas você pode ter certeza que ainda por cima de tudo isso minha princesa, <span class="destaque">EU EUZINHOOO TE AMOOO DEMAISS UM MUIITAOOO</span>.
+            O motivo principal disso aqui é poder demonstrar uma grande parte dos meus sentimentos. Esses dias que a gente teve se falando, eu gostei tanto, mas tanto que você não conseguia sair da minha cabeça. Cada palavra, cada risada, cada jeitinho seu engraçado, me hipnotizava. Não consigo tirar você da minha cabeça, certeza que aonde você deve passar, também deve deixar boas memórias para as pessoas, memórias inesquecíveis. E o mais incrível é ver que você consegue ser tão companheira e parceira sem ter medo também de demonstrar.
         </p>
 
         <p>
-            E sempre vou te amar meu amor, mesmo que eu seja às vezes muito dura com você, não é pra te machucar ou não é por mal, mas sim porque eu quero te ensinar pra você aprender como que é meu bem. Eu sei que tenho um jeito duro, mas não tem que fazer meu amor, nunca vou fazer as coisas pra prejudicar a minha princesa, jamais.
+            Quero poder desfrutar algo com você, porém, eu quero te conhecer mais, estudar sobre você, passar mais tempo com você. A cada segundo eu quero saber quem é a Camila, quem é essa pessoa que não consigo tirar da minha cabeça. Acho que você não reconhece o quão marcante você pode ser pra pessoas. Fiquei triste que a gente não tinha dado certo aquela época, porém, estou dando de tudo para dar certo agora.
         </p>
 
         <p>
-            Então meu amor, nunca esqueça que eu te amo, apesar de tudo eu te amo de verdade, e faria qualquer coisa por você. Sei que se a gente ficar, iremos nos tornar uns dos casais mais belos que o planeta irá ver.
-        </p>
-
-        <p>
-            Sua lindeza, <span class="destaque">QUEM QUE É MINHA BEBÊ AURUDA???? VOCEEEEEE, COISA LINDA</span> 💕
-        </p>
-
-        <p style="text-align: center; text-indent: 0; margin-top: 30px;">
-            <span class="destaque">#MINHA-MULHER-MARAVILHOSA</span>
+            <span class="destaque">Camila, você quer sair comigo?</span> (tem um balão logo abaixo com a resposta 👀) Só falar a data, horário e o dia, deixa que o resto eu resolvo. Só pra deixar mais claro, vai ser no Dom Pedro, ok??
         </p>
     </div>
 
@@ -733,25 +615,32 @@ body {
         <span class="nome">Bryan 🖤</span>
     </div>
 
-    <div class="ps">
-        P.S. Se um dia você esquecer o quanto eu te amo, volta aqui e lê essa carta de novo. 
-        Porque o que eu sinto por você não tem data, não tem prazo e não tem fim. 💕
-    </div>
-
-    <div class="foto-final">
-        <img src="foto-casal.jpg" alt="Nós dois 💕" id="fotoCasal">
-        <div class="legenda">
-            Eu e você 🖤<br>
-            <small style="font-size: 13px; opacity: 0.8;">para sempre</small>
-        </div>
-    </div>
+    <!-- BOTÃO DO BALÃO -->
+    <button class="btn-resposta" id="btnAbrirResposta">SIM! 🥰</button>
 
     <div class="coracao-final">❤️</div>
 </div>
 
-<div class="zoom-foto" id="zoomFoto">
-    <span class="fechar-zoom" id="fecharZoom">×</span>
-    <img src="" alt="Foto ampliada" id="fotoAmpliada">
+<!-- O BALÃO DE RESPOSTA (MODAL) -->
+<div class="modal-resposta" id="modalResposta">
+    <div class="modal-box" id="formResposta">
+        <h2>Ebaaa! Sabia que ia dar certo 🥰</h2>
+        <p>Me diz a data, o dia e o horário que a gente vai no Dom Pedro:</p>
+        
+        <input type="text" class="input-resposta" id="dataResposta" placeholder="Ex: Sexta-feira, dia 20/10, às 19h">
+        
+        <button class="btn-enviar" id="btnSalvarResposta">Salvar minha resposta 💕</button>
+        <button class="btn-fechar" id="btnFecharResposta">Cancelar</button>
+    </div>
+
+    <!-- TELA QUE APARECE DEPOIS DE SALVAR -->
+    <div class="modal-box" id="telaConfirmacao" style="display: none;">
+        <span class="selo" style="font-size: 50px; margin-bottom: 10px;">🥰</span>
+        <h2 style="font-size: 28px; color: #ff4d6d;">Resposta salva!</h2>
+        <p style="font-size: 18px; color: #f5e6ea; margin-top: 15px;">Você disse: <br><br><span id="textoSalvo" style="color: #ff8fa3; font-weight: bold; font-size: 20px;"></span></p>
+        <p style="margin-top: 20px;">Já pode fechar, eu vou ler e te aviso! 💕</p>
+        <button class="btn-fechar" id="btnConcluir" style="margin-top: 20px;">Fechar</button>
+    </div>
 </div>
 
 <script>
@@ -773,117 +662,66 @@ body {
 
     const carta = document.getElementById('carta');
 
-    const fotoCasal = document.getElementById('fotoCasal');
-    const zoomFoto = document.getElementById('zoomFoto');
-    const fotoAmpliada = document.getElementById('fotoAmpliada');
-    const fecharZoom = document.getElementById('fecharZoom');
-
-    if (fotoCasal) {
-        fotoCasal.addEventListener('click', function() {
-            fotoAmpliada.src = this.src;
-            zoomFoto.style.display = 'flex';
-            void zoomFoto.offsetWidth;
-            zoomFoto.classList.add('ativo');
-        });
-    }
-
-    function fecharZoomFoto() {
-        zoomFoto.style.animation = 'fadeInZoom 0.3s ease reverse';
-        setTimeout(function() {
-            zoomFoto.classList.remove('ativo');
-            zoomFoto.style.display = 'none';
-            fotoAmpliada.src = '';
-        }, 300);
-    }
-
-    if (fecharZoom) {
-        fecharZoom.addEventListener('click', function(e) {
-            e.stopPropagation();
-            fecharZoomFoto();
-        });
-    }
-
-    if (zoomFoto) {
-        zoomFoto.addEventListener('click', function(e) {
-            if (e.target === zoomFoto || e.target === fotoAmpliada) {
-                fecharZoomFoto();
-            }
-        });
-    }
+    // BALÃO DE RESPOSTA
+    const btnAbrirResposta = document.getElementById('btnAbrirResposta');
+    const modalResposta = document.getElementById('modalResposta');
+    const btnFecharResposta = document.getElementById('btnFecharResposta');
+    const btnSalvarResposta = document.getElementById('btnSalvarResposta');
+    const dataResposta = document.getElementById('dataResposta');
+    
+    const formResposta = document.getElementById('formResposta');
+    const telaConfirmacao = document.getElementById('telaConfirmacao');
+    const textoSalvo = document.getElementById('textoSalvo');
+    const btnConcluir = document.getElementById('btnConcluir');
 
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
         if (!container) return;
-
         const coracoes = ['❤️', '🖤', '💕', '💖', '💗', '💓'];
         const heart = document.createElement('div');
         heart.className = 'floating-heart';
         heart.textContent = coracoes[Math.floor(Math.random() * coracoes.length)];
-
         const size = Math.random() * 20 + 16;
         heart.style.fontSize = size + 'px';
         heart.style.left = Math.random() * 100 + '%';
-
         const duration = Math.random() * 6 + 8;
         heart.style.animationDuration = duration + 's';
         heart.style.animationDelay = Math.random() * 5 + 's';
-
         container.appendChild(heart);
-
-        setTimeout(function() {
-            if (heart.parentNode) {
-                heart.remove();
-            }
-        }, duration * 1000 + 6000);
+        setTimeout(function() { if (heart.parentNode) heart.remove(); }, duration * 1000 + 6000);
     }
 
     let intervaloCoracoes = setInterval(criarCoracao, 500);
-
-    for (let i = 0; i < 12; i++) {
-        setTimeout(criarCoracao, i * 200);
-    }
+    for (let i = 0; i < 12; i++) setTimeout(criarCoracao, i * 200);
 
     document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            clearInterval(intervaloCoracoes);
-        } else {
-            intervaloCoracoes = setInterval(criarCoracao, 500);
-        }
+        if (document.hidden) clearInterval(intervaloCoracoes);
+        else intervaloCoracoes = setInterval(criarCoracao, 500);
     });
 
     function verificarEtapa1() {
         const valor = inputEtapa1.value.trim().toLowerCase();
-
         if (valor === RESPOSTA_ETAPA_1) {
             telaEtapa1.classList.add('sucesso');
-
             setTimeout(function() {
                 telaEtapa1.style.display = 'none';
-                telaEtapa1.classList.remove('ativa', 'sucesso');
                 telaEtapa2.style.display = 'block';
-                telaEtapa2.classList.add('ativa');
                 inputEtapa2.focus();
             }, 800);
         } else {
             erroEtapa1.classList.add('ativo');
             inputEtapa1.value = '';
             inputEtapa1.focus();
-
-            setTimeout(function() {
-                erroEtapa1.classList.remove('ativo');
-            }, 2000);
+            setTimeout(function() { erroEtapa1.classList.remove('ativo'); }, 2000);
         }
     }
 
     function verificarEtapa2() {
         let valor = inputEtapa2.value.trim();
-
         if (valor === RESPOSTA_ETAPA_2) {
             telaEtapa2.classList.add('sucesso');
-
             setTimeout(function() {
                 telaEtapa2.style.display = 'none';
-                telaEtapa2.classList.remove('ativa', 'sucesso');
                 carta.classList.add('ativa');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 800);
@@ -891,10 +729,7 @@ body {
             erroEtapa2.classList.add('ativo');
             inputEtapa2.value = '';
             inputEtapa2.focus();
-
-            setTimeout(function() {
-                erroEtapa2.classList.remove('ativo');
-            }, 2000);
+            setTimeout(function() { erroEtapa2.classList.remove('ativo'); }, 2000);
         }
     }
 
@@ -903,16 +738,43 @@ body {
     });
 
     btnEtapa1.addEventListener('click', verificarEtapa1);
-    inputEtapa1.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') verificarEtapa1();
-    });
+    inputEtapa1.addEventListener('keypress', function(e) { if (e.key === 'Enter') verificarEtapa1(); });
 
     btnEtapa2.addEventListener('click', verificarEtapa2);
-    inputEtapa2.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') verificarEtapa2();
-    });
+    inputEtapa2.addEventListener('keypress', function(e) { if (e.key === 'Enter') verificarEtapa2(); });
 
     inputEtapa1.focus();
+
+    // LÓGICA DO BALÃO DE RESPOSTA
+    btnAbrirResposta.addEventListener('click', function() {
+        formResposta.style.display = 'block';
+        telaConfirmacao.style.display = 'none';
+        dataResposta.value = '';
+        modalResposta.classList.add('ativo');
+    });
+
+    btnFecharResposta.addEventListener('click', function() {
+        modalResposta.classList.remove('ativo');
+    });
+
+    btnSalvarResposta.addEventListener('click', function() {
+        const resposta = dataResposta.value.trim();
+        if (resposta === '') {
+            alert('Por favor, escreva o dia, a data e o horário! 🥺');
+            return;
+        }
+
+        // Mostra a resposta na tela
+        textoSalvo.textContent = resposta;
+        
+        // Troca as telas
+        formResposta.style.display = 'none';
+        telaConfirmacao.style.display = 'block';
+    });
+
+    btnConcluir.addEventListener('click', function() {
+        modalResposta.classList.remove('ativo');
+    });
 
     window.addEventListener('beforeunload', function() {
         clearInterval(intervaloCoracoes);
