@@ -53,16 +53,10 @@ body {
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(100vh) scale(0.3) rotate(0deg);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh) scale(0.3) rotate(0deg); opacity: 0; }
     10% { opacity: 0.8; }
     90% { opacity: 0.8; }
-    100% {
-        transform: translateY(-10vh) scale(1.1) rotate(360deg);
-        opacity: 0;
-    }
+    100% { transform: translateY(-10vh) scale(1.1) rotate(360deg); opacity: 0; }
 }
 
 .tela-pergunta {
@@ -73,10 +67,7 @@ body {
     max-width: 550px;
     width: 100%;
     text-align: center;
-    box-shadow:
-        0 0 60px rgba(255, 23, 68, 0.3),
-        0 0 120px rgba(255, 23, 68, 0.15),
-        inset 0 0 80px rgba(255, 23, 68, 0.05);
+    box-shadow: 0 0 60px rgba(255, 23, 68, 0.3), 0 0 120px rgba(255, 23, 68, 0.15), inset 0 0 80px rgba(255, 23, 68, 0.05);
     backdrop-filter: blur(15px);
     position: relative;
     z-index: 10;
@@ -84,19 +75,11 @@ body {
     display: none;
 }
 
-.tela-pergunta.ativa {
-    display: block;
-}
+.tela-pergunta.ativa { display: block; }
 
 @keyframes abrirCarta {
-    from {
-        opacity: 0;
-        transform: scale(0.9) translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+    from { opacity: 0; transform: scale(0.9) translateY(30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .cadeado {
@@ -169,7 +152,6 @@ body {
     color: #ffd9e0;
     letter-spacing: 2px;
     font-style: italic;
-    line-height: 1.6;
     box-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
 }
 
@@ -177,7 +159,6 @@ body {
     color: #ff4d6d;
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: 4px;
     text-shadow: 0 0 15px rgba(255, 77, 109, 1);
     padding: 0 5px;
 }
@@ -198,20 +179,8 @@ body {
     font-weight: 600;
 }
 
-.input-senha::placeholder {
-    color: rgba(255, 143, 163, 0.4);
-    font-style: italic;
-    letter-spacing: 1px;
-    font-weight: 400;
-}
-
-.input-senha:focus {
-    border-color: #ff4d6d;
-    box-shadow: 
-        0 0 20px rgba(255, 77, 109, 0.6),
-        0 0 40px rgba(255, 77, 109, 0.3);
-    background: rgba(0, 0, 0, 0.6);
-}
+.input-senha::placeholder { color: rgba(255, 143, 163, 0.4); font-style: italic; font-weight: 400; }
+.input-senha:focus { border-color: #ff4d6d; box-shadow: 0 0 20px rgba(255, 77, 109, 0.6); background: rgba(0, 0, 0, 0.6); }
 
 .btn-desbloquear {
     margin-top: 25px;
@@ -227,51 +196,17 @@ body {
     letter-spacing: 3px;
     text-transform: uppercase;
     box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
-    transition: all 0.3s ease;
     width: 100%;
+    transition: all 0.3s ease;
 }
+.btn-desbloquear:hover { transform: scale(1.03); box-shadow: 0 0 50px rgba(255, 23, 68, 0.8); }
 
-.btn-desbloquear:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 50px rgba(255, 23, 68, 0.8);
-}
+.erro-senha { margin-top: 18px; font-size: 15px; color: #ff6b8a; font-style: italic; opacity: 0; transition: opacity 0.3s; }
+.erro-senha.ativo { opacity: 1; animation: tremerErro 0.5s ease; }
+@keyframes tremerErro { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
 
-.btn-desbloquear:active {
-    transform: scale(0.98);
-}
-
-.erro-senha {
-    margin-top: 18px;
-    font-size: 15px;
-    color: #ff6b8a;
-    font-style: italic;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    letter-spacing: 1px;
-}
-
-.erro-senha.ativo {
-    opacity: 1;
-    animation: tremerErro 0.5s ease;
-}
-
-@keyframes tremerErro {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-8px); }
-    40% { transform: translateX(8px); }
-    60% { transform: translateX(-6px); }
-    80% { transform: translateX(6px); }
-}
-
-.tela-pergunta.sucesso {
-    animation: sucessoAnim 0.8s ease forwards;
-}
-
-@keyframes sucessoAnim {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); box-shadow: 0 0 100px rgba(255, 77, 109, 1); }
-    100% { transform: scale(0); opacity: 0; }
-}
+.tela-pergunta.sucesso { animation: sucessoAnim 0.8s ease forwards; }
+@keyframes sucessoAnim { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(0); opacity: 0; } }
 
 .carta {
     background: linear-gradient(145deg, rgba(60, 10, 30, 0.85), rgba(30, 2, 12, 0.95));
@@ -280,10 +215,7 @@ body {
     padding: 60px 55px;
     max-width: 720px;
     width: 100%;
-    box-shadow:
-        0 0 60px rgba(255, 23, 68, 0.3),
-        0 0 120px rgba(255, 23, 68, 0.15),
-        inset 0 0 80px rgba(255, 23, 68, 0.05);
+    box-shadow: 0 0 60px rgba(255, 23, 68, 0.3), inset 0 0 80px rgba(255, 23, 68, 0.05);
     backdrop-filter: blur(15px);
     position: relative;
     z-index: 10;
@@ -291,94 +223,21 @@ body {
     animation: cartaAparece 1.5s ease;
 }
 
-.carta.ativa {
-    display: block;
-}
+.carta.ativa { display: block; }
+@keyframes cartaAparece { from { opacity: 0; transform: scale(0.8) translateY(50px); } to { opacity: 1; transform: scale(1) translateY(0); } }
 
-@keyframes cartaAparece {
-    from { opacity: 0; transform: scale(0.8) translateY(50px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
+.selo { font-size: 65px; text-align: center; display: block; margin-bottom: 25px; animation: pulsarCoracao 1.5s ease-in-out infinite; }
+@keyframes pulsarCoracao { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
-.selo {
-    font-size: 65px;
-    text-align: center;
-    display: block;
-    margin-bottom: 25px;
-    animation: pulsarCoracao 1.5s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
-}
+.linha-decorativa { width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #ff4d6d, transparent); margin: 25px 0; }
+.data-carta { text-align: right; color: rgba(255, 200, 210, 0.7); font-size: 14px; font-style: italic; margin-bottom: 30px; }
+.saudacao { font-size: 26px; color: #ff8fa3; margin-bottom: 30px; font-style: italic; line-height: 1.6; }
+.texto-carta { font-size: 19px; line-height: 2.1; color: #f5e6ea; text-align: justify; }
+.texto-carta p { margin-bottom: 22px; text-indent: 30px; }
+.destaque { color: #ff4d6d; font-weight: 600; font-style: italic; }
 
-@keyframes pulsarCoracao {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-}
-
-.linha-decorativa {
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ff4d6d, transparent);
-    margin: 25px 0;
-    box-shadow: 0 0 10px rgba(255, 77, 109, 0.8);
-}
-
-.data-carta {
-    text-align: right;
-    color: rgba(255, 200, 210, 0.7);
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-.saudacao {
-    font-size: 26px;
-    color: #ff8fa3;
-    margin-bottom: 30px;
-    font-weight: 400;
-    text-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
-    font-style: italic;
-    line-height: 1.6;
-}
-
-.texto-carta {
-    font-size: 19px;
-    line-height: 2.1;
-    color: #f5e6ea;
-    text-align: justify;
-    letter-spacing: 0.3px;
-}
-
-.texto-carta p {
-    margin-bottom: 22px;
-    text-indent: 30px;
-}
-
-.destaque {
-    color: #ff4d6d;
-    font-weight: 600;
-    text-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
-    font-style: italic;
-}
-
-.assinatura {
-    margin-top: 50px;
-    text-align: right;
-    font-size: 22px;
-    font-style: italic;
-    color: #ff8fa3;
-    text-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
-    line-height: 1.8;
-}
-
-.assinatura .nome {
-    font-size: 28px;
-    color: #ff4d6d;
-    font-weight: 600;
-    display: block;
-    margin-top: 10px;
-    text-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
-}
+.assinatura { margin-top: 50px; text-align: right; font-size: 22px; font-style: italic; color: #ff8fa3; }
+.assinatura .nome { font-size: 28px; color: #ff4d6d; font-weight: 600; display: block; margin-top: 10px; }
 
 /* BOTÃO SIM */
 .btn-resposta {
@@ -401,153 +260,47 @@ body {
     letter-spacing: 2px;
     transition: all 0.3s ease;
 }
+.btn-resposta:hover { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 77, 109, 1); }
+@keyframes pulsarBotao { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
-.btn-resposta:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 60px rgba(255, 77, 109, 1);
-}
-
-@keyframes pulsarBotao {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.03); box-shadow: 0 0 60px rgba(255, 77, 109, 1); }
-}
-
-/* MODAL DE RESPOSTA */
-.modal-resposta {
+/* TELA DE SIM (APARECE QUANDO CLICA NO BOTÃO) */
+.tela-sim {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 2000;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 3000;
     display: none;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-}
-
-.modal-resposta.ativo {
-    display: flex;
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-box {
-    background: linear-gradient(145deg, rgba(60, 10, 30, 0.95), rgba(30, 2, 12, 0.98));
-    border: 2px solid rgba(255, 77, 109, 0.8);
-    border-radius: 25px;
-    padding: 40px 35px;
-    max-width: 500px;
-    width: 100%;
     text-align: center;
-    box-shadow: 0 0 60px rgba(255, 23, 68, 0.5);
 }
+.tela-sim.ativo { display: flex; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.modal-box h2 {
-    color: #ff8fa3;
+.tela-sim-content h1 {
+    font-size: 50px;
+    color: #ff4d6d;
+    text-shadow: 0 0 30px rgba(255, 77, 109, 0.8);
+    animation: pulsarCoracao 1.5s infinite;
+    margin-bottom: 20px;
+}
+.tela-sim-content p {
     font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: normal;
-}
-
-.modal-box p {
-    color: #ffd9e0;
-    font-size: 15px;
-    margin-bottom: 25px;
+    color: #ff8fa3;
     font-style: italic;
 }
-
-.input-resposta {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 77, 109, 0.5);
-    border-radius: 15px;
-    color: #fff;
-    font-size: 16px;
-    font-family: Georgia, serif;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-.input-resposta:focus {
-    border-color: #ff4d6d;
-    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
-}
-
-.btn-enviar {
-    background: linear-gradient(135deg, #ff1744, #a50022);
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-family: Georgia, serif;
-    border-radius: 50px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-    box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.btn-enviar:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 50px rgba(255, 23, 68, 0.8);
-}
-
-.btn-fechar {
-    background: transparent;
-    color: #ff8fa3;
-    border: 1px solid #ff8fa3;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 50px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-}
-
-.btn-fechar:hover {
-    background: rgba(255, 143, 163, 0.1);
-}
-
-/* MENSAGEM DE CONFIRMAÇÃO (QUE APARECE DEPOIS QUE SALVA) */
-.msg-sucesso {
-    display: none;
-    color: #ff8fa3;
-    font-size: 22px;
-    font-style: italic;
-    line-height: 1.6;
-    text-align: center;
-    margin-top: 20px;
-    animation: pulsarCoracao 1.5s ease-in-out infinite;
-}
-
-.coracao-final {
-    text-align: center;
-    font-size: 40px;
-    margin-top: 30px;
-    animation: pulsarCoracao 1.5s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(255, 77, 109, 0.9));
-}
+.coracao-final { text-align: center; font-size: 40px; margin-top: 30px; animation: pulsarCoracao 1.5s ease-in-out infinite; }
 
 @media(max-width: 700px) {
     body { padding: 20px 12px; }
-    .tela-pergunta, .carta, .modal-box { padding: 40px 25px; }
-    .cadeado { font-size: 55px; margin-bottom: 10px; }
+    .tela-pergunta, .carta { padding: 40px 25px; }
     .titulo-senha { font-size: 20px; }
-    .texto-carta { font-size: 16px; line-height: 1.9; text-align: left; }
-    .texto-carta p { text-indent: 20px; }
+    .texto-carta { font-size: 16px; text-align: left; }
     .saudacao { font-size: 20px; }
-    .assinatura { font-size: 18px; }
-    .assinatura .nome { font-size: 22px; }
-    .btn-resposta { font-size: 18px; padding: 15px 20px; }
+    .btn-resposta { font-size: 18px; }
+    .tela-sim-content h1 { font-size: 40px; }
+    .tela-sim-content p { font-size: 20px; }
 }
 </style>
 </head>
@@ -589,25 +342,11 @@ body {
     </div>
 
     <div class="texto-carta">
-        <p>
-            Farmadora de aura nata, fiz esse site pra você, ele é especial. No final da carta vai ter um presente maior do que você imagina (eu acho pelo menos, kakaaka).
-        </p>
-
-        <p>
-            Como você tá princesa? Seguinte: antes a gente não deu certo, eu não fui suficiente, não era bom, nunca tive experiência também. Mas agora eu me sinto mais confiável, nossas conversas são melhores, consigo fazer você rir. Amo ouvir suas risadas, fico contente comigo mesmo, sabendo que estou podendo ser eu mesmo por conta que você tem o mesmo humor que o meu. Antes eu tinha medo de ser quem eu era, porém vi que se eu fosse só eu mesmo, as nossas conversas, o jeito que te faço rir, iam durar muito mais. E é isso o que estou fazendo agora.
-        </p>
-
-        <p>
-            O motivo principal disso aqui é poder demonstrar uma grande parte dos meus sentimentos. Esses dias que a gente teve se falando, eu gostei tanto, mas tanto que você não conseguia sair da minha cabeça. Cada palavra, cada risada, cada jeitinho seu engraçado, me hipnotizava. Não consigo tirar você da minha cabeça, certeza que aonde você deve passar, também deve deixar boas memórias para as pessoas, memórias inesquecíveis. E o mais incrível é ver que você consegue ser tão companheira e parceira sem ter medo também de demonstrar.
-        </p>
-
-        <p>
-            Quero poder desfrutar algo com você, porém, eu quero te conhecer mais, estudar sobre você, passar mais tempo com você. A cada segundo eu quero saber quem é a Camila, quem é essa pessoa que não consigo tirar da minha cabeça. Acho que você não reconhece o quão marcante você pode ser pra pessoas. Fiquei triste que a gente não tinha dado certo aquela época, porém, estou dando de tudo para dar certo agora.
-        </p>
-
-        <p>
-            <span class="destaque">Camila, você quer sair comigo?</span> (tem um balão logo abaixo com a resposta 👀) Só falar a data, horário e o dia, deixa que o resto eu resolvo. Só pra deixar mais claro, vai ser no Dom Pedro, ok??
-        </p>
+        <p>Farmadora de aura nata, fiz esse site pra você, ele é especial. No final da carta vai ter um presente maior do que você imagina (eu acho pelo menos, kakaaka).</p>
+        <p>Como você tá princesa? Seguinte: antes a gente não deu certo, eu não fui suficiente, não era bom, nunca tive experiência também. Mas agora eu me sinto mais confiável, nossas conversas são melhores, consigo fazer você rir. Amo ouvir suas risadas, fico contente comigo mesmo, sabendo que estou podendo ser eu mesmo por conta que você tem o mesmo humor que o meu. Antes eu tinha medo de ser quem eu era, porém vi que se eu fosse só eu mesmo, as nossas conversas, o jeito que te faço rir, iam durar muito mais. E é isso o que estou fazendo agora.</p>
+        <p>O motivo principal disso aqui é poder demonstrar uma grande parte dos meus sentimentos. Esses dias que a gente teve se falando, eu gostei tanto, mas tanto que você não conseguia sair da minha cabeça. Cada palavra, cada risada, cada jeitinho seu engraçado, me hipnotizava. Não consigo tirar você da minha cabeça, certeza que aonde você deve passar, também deve deixar boas memórias para as pessoas, memórias inesquecíveis. E o mais incrível é ver que você consegue ser tão companheira e parceira sem ter medo também de demonstrar.</p>
+        <p>Quero poder desfrutar algo com você, porém, eu quero te conhecer mais, estudar sobre você, passar mais tempo com você. A cada segundo eu quero saber quem é a Camila, quem é essa pessoa que não consigo tirar da minha cabeça. Acho que você não reconhece o quão marcante você pode ser pra pessoas. Fiquei triste que a gente não tinha dado certo aquela época, porém, estou dando de tudo para dar certo agora.</p>
+        <p><span class="destaque">Camila, você quer sair comigo?</span> (tem um balão logo abaixo com a resposta 👀) Só falar a data, horário e o dia, deixa que o resto eu resolvo. Só pra deixar mais claro, vai ser no Dom Pedro, ok??</p>
     </div>
 
     <div class="assinatura">
@@ -615,31 +354,17 @@ body {
         <span class="nome">Bryan 🖤</span>
     </div>
 
-    <!-- BOTÃO DO BALÃO -->
     <button class="btn-resposta" id="btnAbrirResposta">SIM! 🥰</button>
 
     <div class="coracao-final">❤️</div>
 </div>
 
-<!-- O BALÃO DE RESPOSTA (MODAL) -->
-<div class="modal-resposta" id="modalResposta">
-    <div class="modal-box" id="formResposta">
-        <h2>Ebaaa! Sabia que ia dar certo 🥰</h2>
-        <p>Me diz a data, o dia e o horário que a gente vai no Dom Pedro:</p>
-        
-        <input type="text" class="input-resposta" id="dataResposta" placeholder="Ex: Sexta-feira, dia 20/10, às 19h">
-        
-        <button class="btn-enviar" id="btnSalvarResposta">Salvar minha resposta 💕</button>
-        <button class="btn-fechar" id="btnFecharResposta">Cancelar</button>
-    </div>
-
-    <!-- TELA QUE APARECE DEPOIS DE SALVAR -->
-    <div class="modal-box" id="telaConfirmacao" style="display: none;">
-        <span class="selo" style="font-size: 50px; margin-bottom: 10px;">🥰</span>
-        <h2 style="font-size: 28px; color: #ff4d6d;">Resposta salva!</h2>
-        <p style="font-size: 18px; color: #f5e6ea; margin-top: 15px;">Você disse: <br><br><span id="textoSalvo" style="color: #ff8fa3; font-weight: bold; font-size: 20px;"></span></p>
-        <p style="margin-top: 20px;">Já pode fechar, eu vou ler e te aviso! 💕</p>
-        <button class="btn-fechar" id="btnConcluir" style="margin-top: 20px;">Fechar</button>
+<!-- TELA QUE APARECE QUANDO CLICA NO SIM -->
+<div class="tela-sim" id="telaSim">
+    <div class="tela-sim-content">
+        <h1>🥰 SIM!!! 🥰</h1>
+        <p>Pode deixar que eu cuido de tudo, princesa!</p>
+        <div class="coracao-final" style="font-size: 60px; margin-top: 30px;">❤️</div>
     </div>
 </div>
 
@@ -661,18 +386,9 @@ body {
     const erroEtapa2 = document.getElementById('erroEtapa2');
 
     const carta = document.getElementById('carta');
-
-    // BALÃO DE RESPOSTA
-    const btnAbrirResposta = document.getElementById('btnAbrirResposta');
-    const modalResposta = document.getElementById('modalResposta');
-    const btnFecharResposta = document.getElementById('btnFecharResposta');
-    const btnSalvarResposta = document.getElementById('btnSalvarResposta');
-    const dataResposta = document.getElementById('dataResposta');
     
-    const formResposta = document.getElementById('formResposta');
-    const telaConfirmacao = document.getElementById('telaConfirmacao');
-    const textoSalvo = document.getElementById('textoSalvo');
-    const btnConcluir = document.getElementById('btnConcluir');
+    const btnAbrirResposta = document.getElementById('btnAbrirResposta');
+    const telaSim = document.getElementById('telaSim');
 
     function criarCoracao() {
         const container = document.getElementById('floatingHearts');
@@ -745,35 +461,9 @@ body {
 
     inputEtapa1.focus();
 
-    // LÓGICA DO BALÃO DE RESPOSTA
+    // LÓGICA DO BOTÃO SIM
     btnAbrirResposta.addEventListener('click', function() {
-        formResposta.style.display = 'block';
-        telaConfirmacao.style.display = 'none';
-        dataResposta.value = '';
-        modalResposta.classList.add('ativo');
-    });
-
-    btnFecharResposta.addEventListener('click', function() {
-        modalResposta.classList.remove('ativo');
-    });
-
-    btnSalvarResposta.addEventListener('click', function() {
-        const resposta = dataResposta.value.trim();
-        if (resposta === '') {
-            alert('Por favor, escreva o dia, a data e o horário! 🥺');
-            return;
-        }
-
-        // Mostra a resposta na tela
-        textoSalvo.textContent = resposta;
-        
-        // Troca as telas
-        formResposta.style.display = 'none';
-        telaConfirmacao.style.display = 'block';
-    });
-
-    btnConcluir.addEventListener('click', function() {
-        modalResposta.classList.remove('ativo');
+        telaSim.classList.add('ativo');
     });
 
     window.addEventListener('beforeunload', function() {
